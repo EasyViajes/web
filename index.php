@@ -37,7 +37,7 @@
                 <div class="col-md-7 ftco-animate">
                     <span class="">EasyViajes</span>
                     <h1 class="mb-4">Encuentra tu ruta favorita</h1>
-                    <p class="caps">Travel to the any corner of the world, without going around in circles</p>
+                    <p class="caps">Viaja en las distintas rutas de santiago con los colectivos colaboradores.</p>
                 </div>
             </div>
         </div>
