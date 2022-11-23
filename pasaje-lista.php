@@ -23,6 +23,7 @@ function print_rutas($data){
     echo "      <input type='hidden' id='dir' name='direccion_destino' value='", $ruta['direccion_destino'],"'/>";
     echo "      <input type='hidden' id='hr' name='hora_salida' value='", $ruta['hora_salida'],"'/>";
     echo "      <input type='hidden' id='precio' name='precio' value='", $ruta['precio'],"'/>";
+    echo "      <input type='hidden' id='precio' name='fk_empresa' value='", $ruta['fk_empresa'],"'/>";
     echo '      <button type="submit" class="btn btn-success">Comprar</button>';
     echo "    </form>";
     echo "</tr>";

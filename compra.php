@@ -89,6 +89,7 @@ require "$_SERVER[DOCUMENT_ROOT]/models/Ruta.php";
                       echo "<input type='hidden' id='id' name='direccion_destino' value='", $_POST['direccion_destino'],"'/>";
                       echo "<input type='hidden' id='id' name='hora_salida' value='", $_POST['hora_salida'],"'/>";
                       echo "<input type='hidden' id='id' name='precio' value='", $_POST['precio'],"'/>";
+                      echo "<input type='hidden' id='id' name='fk_empresa' value='", $_POST['fk_empresa'],"'/>";
                     ?>
                         <div class="form-group">
                             <input placeholder="Nombre" id="nombre" name="nombre" type="text" class="form-control" required>
