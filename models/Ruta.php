@@ -2,21 +2,22 @@
 
 function create_ruta($conn, $ruta){
   try {
-    $sql = "INSERT INTO Ruta (hora_salida, fecha_creacion, direccion_origen, direccion_destino, fk_estado, fk_vehiculo, fk_empresa) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO Ruta (hora_salida, precio, fecha_creacion, direccion_origen, direccion_destino, fk_estado, fk_empresa, fk_vehiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       header("location: /ruta-create.php?err=failedPrepStmt");
       exit();
     }
-    mysqli_stmt_bind_param($stmt, "ssiiii",
+    mysqli_stmt_bind_param($stmt, "sisssiii",
       $ruta['hora_salida'],
+      $ruta['precio'],
       $ruta['fecha_creacion'],
       $ruta['direccion_origen'],
       $ruta['direccion_destino'],
       $ruta['fk_estado'],
+      $ruta['fk_empresa'],
       $ruta['fk_vehiculo'],
-      $ruta['fk_empresa']
     );
 
     $result = mysqli_stmt_execute($stmt);
@@ -30,7 +31,7 @@ function create_ruta($conn, $ruta){
   }
 }
 
-function getRutas($conn, $id_empresa){
+function get_rutas($conn, $id_empresa){
   $query="SELECT * FROM Ruta WHERE fk_empresa=$id_empresa";
 	$result = mysqli_query($conn, $query);
 
@@ -43,6 +44,21 @@ function getRutas($conn, $id_empresa){
   mysqli_close($conn);
   return $rows;
 }
+
+function get_all_rutas($conn){
+  $query="SELECT * FROM Ruta";
+	$result = mysqli_query($conn, $query);
+
+  /* fetch associative array */
+  $rows = array();
+  while ($row = mysqli_fetch_assoc($result)){
+    $rows[] = $row;
+
+  }
+  mysqli_close($conn);
+  return $rows;
+}
+
 
 function getRuta_pasaje($conn, $id_ruta){
   $query="SELECT * FROM Ruta WHERE id=$id_ruta";
@@ -58,11 +74,36 @@ function getRuta_pasaje($conn, $id_ruta){
   return $rows;
 }
 
-function get_top_rutas($conn, $id_empresa){
+function update_ruta($conn, $old_ruta, $new_ruta){
+  try {
+    $sql = "UPDATE Ruta SET hora_salida=?, precio=?, direccion_origen=?, direccion_destino=?, fk_estado=?, fk_vehiculo=? WHERE id=?";
+    $stmt = mysqli_stmt_init($conn);
 
-  $query ='SELECT * FROM Ruta INNER JOIN Venta ON Ruta.id = Venta.fk_ruta';
-    //GROUP BY product order by sum(amount) desc limit 3;';
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+      header("location: /ruta-create.php?msg=updateFailed");
+      exit();
+    }
 
+    mysqli_stmt_bind_param($stmt, "sissiii",
+      $new_ruta['hora_salida'],
+      $new_ruta['precio'],
+      $new_ruta['direccion_origen'],
+      $new_ruta['direccion_destino'],
+      $new_ruta['fk_estado'],
+      $new_ruta['fk_vehiculo'],
+
+      $old_ruta['id'],
+    );
+
+    $result = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    return $result;
+  }
+  catch(Exception $e) {
+    echo "Exception in create_ruta()\n";
+    echo $e->getMessage();
+    die();
+  }
 }
 
 function delete_ruta($conn, $id){

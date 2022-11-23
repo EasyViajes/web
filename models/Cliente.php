@@ -14,7 +14,7 @@ function generate_secreto($strength = 16) {
 
 function create_cliente($conn, $cliente){
   try {
-    $sql = "INSERT INTO Cliente (nombre, fk_comuna) VALUES (?, ?)";
+    $sql = "INSERT INTO Cliente (nombre, apellido, mail, secreto, fecha_creacion) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -22,6 +22,8 @@ function create_cliente($conn, $cliente){
       exit();
     }
     mysqli_stmt_bind_param($stmt, "sss",
+      $cliente['nombre'],
+      $cliente['apellido'],
       $cliente['mail'],
       $cliente['secreto'],
       $cliente['fecha_creacion']
@@ -36,6 +38,37 @@ function create_cliente($conn, $cliente){
 
   catch(Exception $e) {
     echo "Exception in create_cliente()\n";
+    echo $e->getMessage();
+    die();
+  }
+}
+
+function update_cliente($conn, $old_cliente, $new_cliente){
+  try {
+    $sql = "UPDATE Cliente SET nombre=?, apellido=?, mail=?, secreto=?, fecha_creacion=? WHERE id=?";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+      header("location: /cliente-create.php?error=updateFailed");
+      exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "sssssi",
+      $new_cliente['nombre'],
+      $new_cliente['apellido'],
+      $new_cliente['mail'],
+      $new_cliente['secreto'],
+      $new_cliente['fecha_creacion'],
+
+      $old_cliente['id'],
+    );
+
+    $result = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    return $result;
+  }
+  catch(Exception $e) {
+    echo "Exception in update_cliente()\n";
     echo $e->getMessage();
     die();
   }

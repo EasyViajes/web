@@ -10,8 +10,8 @@ $preference = new MercadoPago\Preference();
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
 $item->title = 'Pasaje';
-$item->quantity = 3;
-$item->unit_price = 100000;
+$item->quantity = 1;
+$item->unit_price = $_POST['precio'];
 $preference->items = array($item);
 $preference->save();
 ?>
@@ -69,7 +69,7 @@ $preference->save();
                                                     <span class="fa fa-map-marker"></span>
                                                 </div>
                                                 <h3 class="mb-2">ORIGEN</h3>
-                                                <p>ejem santiago</p>
+                                                <p><?php echo $_POST['direccion_origen']?></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 d-flex">
@@ -78,7 +78,7 @@ $preference->save();
                                                     <span class="fa fa-map-marker"></span>
                                                 </div>
                                                 <h3 class="mb-2">Destino</h3>
-                                                <p><a href=""> Universidad de Chile</a></p>
+                                                <p><?php echo $_POST['direccion_destino']?></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 d-flex">
@@ -87,7 +87,7 @@ $preference->save();
                                                     <span class="fa fa-clock-o"></span>
                                                 </div>
                                                 <h3 class="mb-2">Hora</h3>
-                                                <p><a href="">9:30 am</a></p>
+                                                <p><?php echo $_POST['hora_salida']?></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 d-flex">
@@ -96,7 +96,7 @@ $preference->save();
                                                     <span class="fa fa-calendar"></span>
                                                 </div>
                                                 <h3 class="mb-2">Fecha</h3>
-                                                <p><a href="#">10/20/2022</a></p>
+                                                <p><a href="#">11/24/2022</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -105,22 +105,22 @@ $preference->save();
 
                             <div class="mb-2">
                                 <label for="disabledTextInput" class="form-label">Nombre</label>
-                                <input type="text" id="disabledTextInput" class="form-control"
+                                <input type="text" id="disabledTextInput" value="<?php echo $_POST['nombre']?>" class="form-control"
                                     placeholder="Disabled input" disabled>
                             </div>
                             <div class="mb-2">
                                 <label for="disabledTextInput" class="form-label">Apellido</label>
-                                <input type="text" id="disabledTextInput" class="form-control"
+                                <input type="text" id="disabledTextInput" class="form-control" value="<?php echo $_POST['apellido']?>"
                                     placeholder="Disabled input" disabled>
                             </div>
                             <div class="mb-2">
                                 <label for="disabledTextInput" class="form-label">Email</label>
-                                <input type="text" id="disabledTextInput" class="form-control"
+                                <input type="text" id="disabledTextInput" class="form-control" value="<?php echo $_POST['mail']?>"
                                     placeholder="Disabled input" disabled>
                             </div>
                             <div class="mb-2" id="boton_pago">
                                 <label for="disabledTextInput" class="form-label">Precio</label>
-                                <input type="text" id="disabledTextInput" class="form-control"
+                                <input type="text" id="disabledTextInput" class="form-control" value="<?php echo $_POST['precio']?>"
                                     placeholder="Disabled input" disabled>
                             </div>
 

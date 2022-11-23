@@ -5,7 +5,7 @@ function create_vehiculo($conn, $vehiculo){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /vehiculo-create.php?err=failedPrepStmt");
+      header("location: /vehiculo-create.php?msg=failedPrepStmt");
       exit();
     }
 
@@ -41,6 +41,38 @@ function get_vehiculos($conn, $id_empresa){
 
   }
   return $rows;
+}
+
+function update_vehiculo($conn, $old_vehiculo, $new_vehiculo){
+  try {
+    $sql = "UPDATE Vehiculo SET patente=?, marca=?, asientos=?, mensualidad=?, fk_estado=?, fk_empresa=? WHERE id=?";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+      header("location: /vehiculo-create.php?msg=updateFailed");
+      exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssiiiii",
+      $new_vehiculo['patente'],
+      $new_vehiculo['marca'],
+      $new_vehiculo['asientos'],
+      $new_vehiculo['mensualidad'],
+      $new_vehiculo['fk_estado'],
+      $new_vehiculo['fk_empresa'],
+
+      $old_vehiculo['id'],
+    );
+
+    $result = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    return $result;
+  }
+  catch(Exception $e) {
+    echo "Exception in update_vehiculo()\n";
+    echo $e->getMessage();
+    die();
+  }
 }
 
 function delete_vehiculo($conn, $id){

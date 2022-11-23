@@ -1,4 +1,6 @@
-
+<?php
+require "$_SERVER[DOCUMENT_ROOT]/models/Ruta.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +44,7 @@
                             <span class="fa fa-map-marker"></span>
                         </div>
                         <h3 class="mb-2">ORIGEN</h3>
-                        <p>ejem santiago</p>
+                        <p><?php echo $_POST['direccion_origen']?></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -51,7 +53,7 @@
                             <span class="fa fa-map-marker"></span>
                         </div>
                         <h3 class="mb-2">Destino</h3>
-                        <p><a href=""> Universidad de Chile</a></p>
+                        <p><?php echo $_POST['direccion_destino']?></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -60,7 +62,7 @@
                             <span class="fa fa-clock-o"></span>
                         </div>
                         <h3 class="mb-2">Hora</h3>
-                        <p><a href="">9:30 am</a></p>
+                        <p><?php echo $_POST['hora_salida']?></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -69,7 +71,7 @@
                             <span class="fa fa-calendar"></span>
                         </div>
                         <h3 class="mb-2">Fecha</h3>
-                        <p><a href="#">10/20/2022</a></p>
+                        <p><a href="#">11/24/2022</a></p>
                     </div>
                 </div>
             </div>
@@ -81,21 +83,28 @@
             <div class="row block-9">
                 <div class="col-md-6 order-md-last d-flex">
                     <form method="post" action="detalle_venta.php" class="bg-light p-5 contact-form">
+                    <?php
+                      echo "<input type='hidden' id='id' name='id' value='", $_POST['id'],"'/>";
+                      echo "<input type='hidden' id='id' name='direccion_origen' value='", $_POST['direccion_origen'],"'/>";
+                      echo "<input type='hidden' id='id' name='direccion_destino' value='", $_POST['direccion_destino'],"'/>";
+                      echo "<input type='hidden' id='id' name='hora_salida' value='", $_POST['hora_salida'],"'/>";
+                      echo "<input type='hidden' id='id' name='precio' value='", $_POST['precio'],"'/>";
+                    ?>
                         <div class="form-group">
-                            <input placeholder="Nombre" id="inp_name" type="text" class="form-control" required>
+                            <input placeholder="Nombre" id="nombre" name="nombre" type="text" class="form-control" required>
 
                         </div>
                         <div class="form-group">
-                            <input placeholder="Apellidos" id="inp_first_name" type="text" class="form-control"
+                            <input placeholder="Apellidos" id="apellido" name="apellido" type="text" class="form-control"
                                 required>
 
                         </div>
                         <div class="form-group">
-                            <input placeholder="Correo" id="inp_email" type="email" class="form-control" required>
+                            <input placeholder="Correo" id="inp_email" name="mail" type="email" class="form-control" required>
 
                         </div>
                         <div class="form-group">
-                            <input placeholder="Celular" id="inp_celular" type="number" class="form-control" required>
+                            <input placeholder="Celular" id="inp_celular" name="celular" type="number" class="form-control" required>
 
                         </div>
                         <div class="form-group">
