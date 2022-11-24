@@ -75,7 +75,9 @@
                                                         <label for="#">Origen</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control" name="example" list="exampleList" placeholder="Ingresar Origen" required>
+                                                            <input type="text" class="form-control" name="example"
+                                                                list="exampleList" placeholder="Ingresar Origen"
+                                                                required>
                                                             <datalist id="exampleList">
                                                                 <option value="A">
                                                                 <option value="B">
@@ -88,7 +90,9 @@
                                                         <label for="#">Destino</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-search"></span></div>
-															<input type="text" class="form-control" name="example" list="exampleList" placeholder="Ingresar Destino" required>
+                                                            <input type="text" class="form-control" name="example"
+                                                                list="exampleList" placeholder="Ingresar Destino"
+                                                                required>
                                                             <datalist id="exampleList">
                                                                 <option value="A">
                                                                 <option value="B">
@@ -101,7 +105,7 @@
                                                         <label for="#">Fecha</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                            <input type="text" class="form-control checkin_date"
+                                                            <input  id="date-picker" type="date" autocomplete="off" class="form-control"
                                                                 placeholder="Fecha" required>
                                                         </div>
                                                     </div>
@@ -326,6 +330,29 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/scrollax.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false">
+    </script>
+    <script>
+    const datePicker = document.getElementById("date-picker");
+
+    datePicker.min = getDate();
+    datePicker.max = getDate(14);
+
+    // Borrowed from https://stackoverflow.com/a/29774197/7290573
+    function getDate(days) {
+        let date;
+
+        if (days !== undefined) {
+            date = new Date(Date.now() + days * 24 * 60 * 60 * 1000);
+        } else {
+            date = new Date();
+        }
+
+        const offset = date.getTimezoneOffset();
+
+        date = new Date(date.getTime() - (offset * 60 * 1000));
+
+        return date.toISOString().split("T")[0];
+    }
     </script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
