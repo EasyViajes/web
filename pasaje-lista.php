@@ -1,38 +1,3 @@
-<?php
-require "$_SERVER[DOCUMENT_ROOT]/models/Ruta.php";
-
-#conection
-require "$_SERVER[DOCUMENT_ROOT]/utils/connection.php";
-$conn = create_connection();
-
-$rutas = get_all_rutas($conn);
-
-function print_rutas($data){
-  foreach ($data as $ruta){
-    echo "<tr>";
-    echo "  <td>", $ruta['id'], "</td>";
-    echo "  <td>", $ruta['fk_empresa'], "</td>";
-    echo "  <td>", $ruta['direccion_origen'], "</td>";
-    echo "  <td>", $ruta['direccion_destino'], "</td>";
-    echo "  <td>", $ruta['hora_salida'], "</td>";
-    echo "  <td>", $ruta['precio'], "</td>";
-    echo "  <td>";
-    echo "    <form action='compra.php' method='POST'>";
-    echo "      <input type='hidden' id='id' name='id' value='", $ruta['id'],"'/>";
-    echo "      <input type='hidden' id='dir' name='direccion_origen' value='", $ruta['direccion_origen'],"'/>";
-    echo "      <input type='hidden' id='dir' name='direccion_destino' value='", $ruta['direccion_destino'],"'/>";
-    echo "      <input type='hidden' id='hr' name='hora_salida' value='", $ruta['hora_salida'],"'/>";
-    echo "      <input type='hidden' id='precio' name='precio' value='", $ruta['precio'],"'/>";
-    echo "      <input type='hidden' id='precio' name='fk_empresa' value='", $ruta['fk_empresa'],"'/>";
-    echo '      <button type="submit" class="btn btn-success">Comprar</button>';
-    echo "    </form>";
-    echo "</tr>";
-
-  }
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,7 +45,17 @@ function print_rutas($data){
                         </tr>
                     </thead>
                     <tbody>
-                      <?php print_rutas($rutas)?>
+                        <form action="compra.php" method="POST">
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Transportes e.e</td>
+                                <td>VIÑA</td>
+                                <td>SANTIAGO</td>
+                                <td>9:30</td>
+                                <td>$500</td>
+                                <td><button type="submit" class="btn btn-success">Comprar</button></td>
+                            </tr>
+                        </form>
                     </tbody>
                 </table>
             </div>

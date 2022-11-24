@@ -68,7 +68,7 @@
 
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                         aria-labelledby="v-pills-nextgen-tab">
-                                        <form action="localhost:8080/pasaje-lista.php" class="search-property-1">
+                                        <form action="pasaje-lista.php" class="search-property-1">
                                             <div class="row no-gutters">
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4 border-0">

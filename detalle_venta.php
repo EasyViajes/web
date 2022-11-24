@@ -1,8 +1,4 @@
 <?php 
-
-$id_ruta = $_POST['id'];
-$id_empresa = $_POST['fk_empresa'];
-
 // SDK de Mercado Pago
 require __DIR__ .  '/vendor/autoload.php';
 // Agrega credenciales
@@ -10,15 +6,12 @@ MercadoPago\SDK::setAccessToken('TEST-6099928014111868-050500-996855036f00e109b0
 
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
-$preference->back_urls=array(
-  "success"=>"localhost:8080/venta-exitosa.php?id_ruta=$id_ruta&id_empresa=$id_empresa",
-);
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
 $item->title = 'Pasaje';
-$item->quantity = 1;
-$item->unit_price = $_POST['precio'];
+$item->quantity = 3;
+$item->unit_price = 100000;
 $preference->items = array($item);
 $preference->save();
 ?>
@@ -76,7 +69,7 @@ $preference->save();
                                                     <span class="fa fa-map-marker"></span>
                                                 </div>
                                                 <h3 class="mb-2">ORIGEN</h3>
-                                                <p><?php echo $_POST['direccion_origen']?></p>
+                                                <p>ejem santiago</p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 d-flex">
@@ -85,7 +78,7 @@ $preference->save();
                                                     <span class="fa fa-map-marker"></span>
                                                 </div>
                                                 <h3 class="mb-2">Destino</h3>
-                                                <p><?php echo $_POST['direccion_destino']?></p>
+                                                <p><a href=""> Universidad de Chile</a></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 d-flex">
@@ -94,7 +87,7 @@ $preference->save();
                                                     <span class="fa fa-clock-o"></span>
                                                 </div>
                                                 <h3 class="mb-2">Hora</h3>
-                                                <p><?php echo $_POST['hora_salida']?></p>
+                                                <p><a href="">9:30 am</a></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 d-flex">
@@ -103,7 +96,7 @@ $preference->save();
                                                     <span class="fa fa-calendar"></span>
                                                 </div>
                                                 <h3 class="mb-2">Fecha</h3>
-                                                <p><a href="#">11/24/2022</a></p>
+                                                <p><a href="#">10/20/2022</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -112,22 +105,22 @@ $preference->save();
 
                             <div class="mb-2">
                                 <label for="disabledTextInput" class="form-label">Nombre</label>
-                                <input type="text" id="disabledTextInput" value="<?php echo $_POST['nombre']?>" class="form-control"
+                                <input type="text" id="disabledTextInput" class="form-control"
                                     placeholder="Disabled input" disabled>
                             </div>
                             <div class="mb-2">
                                 <label for="disabledTextInput" class="form-label">Apellido</label>
-                                <input type="text" id="disabledTextInput" class="form-control" value="<?php echo $_POST['apellido']?>"
+                                <input type="text" id="disabledTextInput" class="form-control"
                                     placeholder="Disabled input" disabled>
                             </div>
                             <div class="mb-2">
                                 <label for="disabledTextInput" class="form-label">Email</label>
-                                <input type="text" id="disabledTextInput" class="form-control" value="<?php echo $_POST['mail']?>"
+                                <input type="text" id="disabledTextInput" class="form-control"
                                     placeholder="Disabled input" disabled>
                             </div>
                             <div class="mb-2" id="boton_pago">
                                 <label for="disabledTextInput" class="form-label">Precio</label>
-                                <input type="text" id="disabledTextInput" class="form-control" value="<?php echo $_POST['precio']?>"
+                                <input type="text" id="disabledTextInput" class="form-control"
                                     placeholder="Disabled input" disabled>
                             </div>
 

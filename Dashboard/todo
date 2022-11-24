@@ -1,0 +1,16 @@
+- Cambiar datos de pruebas (fechas)
+- Output de mensajes.
+
+ADM
+- Registro
+- Permisos de usuario
+- Graficos con data real
+- Actualizacion de items
+- Eliminacion de items
+
+Cliente
+- Panel Cliente
+- Creacion de Cliente (secret, mail)
+- Compra Pasajes
+- Cancelacion de Pasajes
+- Asignacion de asientos
