@@ -90,18 +90,18 @@
         <div class="container">
             <div class="row block-9">
                 <div class="col-md-6 order-md-last d-flex">
-                    <form action="https://formsubmit.co/easyviajescl@gmail.com" method="POST" class="bg-light p-5 contact-form">
+                    <form action="#" class="bg-light p-5 contact-form">
                         <div class="form-group">
-                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Su nombre">
+                            <input type="text" class="form-control" placeholder="Su nombre">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Correo">
+                            <input type="text" class="form-control" placeholder="Su Correo">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="asunto" id="asunto" class="form-control" placeholder="Asunto">
+                            <input type="text" class="form-control" placeholder="Asunto">
                         </div>
                         <div class="form-group">
-                            <textarea name="mensaje" id="mensaje" cols="30" rows="7" class="form-control"
+                            <textarea name="" id="" cols="30" rows="7" class="form-control"
                                 placeholder="Mensaje"></textarea>
                         </div>
                         <div class="form-group">
