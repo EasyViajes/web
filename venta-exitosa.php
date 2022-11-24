@@ -1,8 +1,8 @@
 <?php
-require "$_SERVER[DOCUMENT_ROOT]/models/Venta.php";
+require "models/Venta.php";
 
 #conection
-require "$_SERVER[DOCUMENT_ROOT]/utils/connection.php";
+require "utils/connection.php";
 $conn = create_connection();
 
 $venta = array(
