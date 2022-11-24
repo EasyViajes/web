@@ -38,7 +38,7 @@ function print_conductor($data){
     echo "  <td>", $conductor['fk_vehiculo'],"</td>";
 
     echo "  <td>";
-    echo "    <form action='conductor-update.php' method='POST'>";
+    echo "    <form action='/Dashboard/conductor-update.php' method='POST'>";
     echo "      <input type='hidden' id='id'            name='id'             value='", $conductor['id'],"'/>";
     echo "      <input type='hidden' id='rut'           name='rut'            value='", $conductor['rut'],"'/>";
     echo "      <input type='hidden' id='nombre'        name='nombre'         value='", $conductor['nombre'],"'/>";

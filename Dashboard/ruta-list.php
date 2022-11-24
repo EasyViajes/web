@@ -40,7 +40,7 @@ function print_rutas($data){
     echo "  <td>", $ruta['fk_empresa'], "</td>";
 
     echo "  <td>";
-    echo "    <form action='ruta-update.php' method='POST'>";
+    echo "    <form action='/Dashboard/ruta-update.php' method='POST'>";
     echo "      <input type='hidden' id='id' name='id' value='", $ruta['id'],"'/>";
     echo "      <input type='hidden' id='hora_salida' name='hora_salida' value='", $ruta['hora_salida'],"'/>";
     echo "      <input type='hidden' id='precio' name='precio' value='", $ruta['precio'],"'/>";

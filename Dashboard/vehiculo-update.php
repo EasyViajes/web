@@ -1,8 +1,8 @@
 <?php
-require "$_SERVER[DOCUMENT_ROOT]/models/Vehiculo.php";
-require "$_SERVER[DOCUMENT_ROOT]/models/Conductor.php";
-require "$_SERVER[DOCUMENT_ROOT]/models/Estado.php";
-require "$_SERVER[DOCUMENT_ROOT]/utils/message-handlers.php";
+require "models/Vehiculo.php";
+require "models/Conductor.php";
+require "models/Estado.php";
+require "utils/message-handlers.php";
 
 session_start();
 
