@@ -39,10 +39,4 @@ function login($mail, $pwd)
 }
 
 function logout(){
-  if(isset($_SESSION)){
-    session_unset();
-    session_destroy();
-  }
-
-  header("location: /Dashboard/login.php?msg=sessionClosed");
 }

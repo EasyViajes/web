@@ -1,17 +1,16 @@
 <?php
 
-function create_venta($conn, $venta){ try { $sql = "INSERT INTO Venta (fecha_compra, fk_estado, fk_ruta, fk_empresa, fk_cliente) VALUES (?, ?, ?, ?, ?)";
+function create_venta($conn, $venta){ try { $sql = "INSERT INTO Venta (fecha_compra, fk_estado, fk_ruta, fk_empresa) VALUES (?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       header("location: /Dashboard/conductor-create.php?err=failedPrepStmt"); exit();
     }
-    mysqli_stmt_bind_param($stmt, "siiii",
+    mysqli_stmt_bind_param($stmt, "siii",
       $conductor['fecha_compra'],
       $conductor['fk_estado'],
       $conductor['fk_ruta'],
       $conductor['fk_empresa'],
-      $conductor['fk_cliente'],
     );
 
     $result = mysqli_stmt_execute($stmt);

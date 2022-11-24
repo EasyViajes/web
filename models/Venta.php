@@ -6,7 +6,7 @@ function create_venta($conn, $venta){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /venta-create.php?err=failedPrepStmt"); exit();
+      header("location: /Dashboard/venta-create.php?err=failedPrepStmt"); exit();
     }
     mysqli_stmt_bind_param($stmt, "siii",
       $venta['fecha_compra'],
