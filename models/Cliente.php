@@ -18,7 +18,7 @@ function create_cliente($conn, $cliente){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /cliente-create.php?msg=creationFailed");
+      header("location: /Dashboard/cliente-create.php?msg=creationFailed");
       exit();
     }
     mysqli_stmt_bind_param($stmt, "sss",
@@ -49,7 +49,7 @@ function update_cliente($conn, $old_cliente, $new_cliente){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /cliente-create.php?error=updateFailed");
+      header("location: /Dashboard/cliente-create.php?error=updateFailed");
       exit();
     }
 

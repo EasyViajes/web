@@ -6,7 +6,7 @@ function create_ruta($conn, $ruta){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /ruta-create.php?err=failedPrepStmt");
+      header("location: /Dashboard/ruta-create.php?err=failedPrepStmt");
       exit();
     }
     mysqli_stmt_bind_param($stmt, "sisssiii",
@@ -41,24 +41,8 @@ function get_rutas($conn, $id_empresa){
     $rows[] = $row;
 
   }
-  mysqli_close($conn);
   return $rows;
 }
-
-function get_all_rutas($conn){
-  $query="SELECT * FROM Ruta";
-	$result = mysqli_query($conn, $query);
-
-  /* fetch associative array */
-  $rows = array();
-  while ($row = mysqli_fetch_assoc($result)){
-    $rows[] = $row;
-
-  }
-  mysqli_close($conn);
-  return $rows;
-}
-
 
 function getRuta_pasaje($conn, $id_ruta){
   $query="SELECT * FROM Ruta WHERE id=$id_ruta";
@@ -80,7 +64,7 @@ function update_ruta($conn, $old_ruta, $new_ruta){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /ruta-create.php?msg=updateFailed");
+      header("location: /Dashboard/ruta-create.php?msg=updateFailed");
       exit();
     }
 
@@ -100,7 +84,7 @@ function update_ruta($conn, $old_ruta, $new_ruta){
     return $result;
   }
   catch(Exception $e) {
-    echo "Exception in create_ruta()\n";
+    echo "Exception in update_ruta()\n";
     echo $e->getMessage();
     die();
   }

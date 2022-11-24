@@ -6,7 +6,7 @@ function create_empresa($conn, $empresa){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /empresa-create.php?msg=creationFailed");
+      header("location: /Dashboard/empresa-create.php?msg=creationFailed");
       exit();
     }
     mysqli_stmt_bind_param($stmt, "ssssi",
@@ -45,7 +45,7 @@ function update_empresa($conn, $old_empresa, $new_empresa){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /empresa-create.php?error=updateFailed");
+      header("location: /Dashboard/empresa-create.php?error=updateFailed");
       exit();
     }
 

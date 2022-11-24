@@ -6,7 +6,7 @@ function create_direccion($conn, $direccion){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /direccion-create.php?msg=creationFailed");
+      header("location: /Dashboard/direccion-create.php?msg=creationFailed");
       exit();
     }
     mysqli_stmt_bind_param($stmt, "si",

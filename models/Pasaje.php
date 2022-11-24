@@ -5,7 +5,7 @@ function createPasaje($conn, $pasaje){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /pasaje-create.php?err=failedPrepStmt");
+      header("location: /Dashboard/pasaje-create.php?err=failedPrepStmt");
       exit();
     }
     mysqli_stmt_bind_param($stmt, "iiii",
