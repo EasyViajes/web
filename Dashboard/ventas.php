@@ -46,7 +46,7 @@ function print_ventas($data){
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Lista Conductor</title>
+    <title>Lista Ventas</title>
 
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />

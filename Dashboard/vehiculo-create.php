@@ -52,7 +52,7 @@ function print_conductor($data) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Crear Pasaje</title>
+    <title>Crear Vehículo</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -104,7 +104,7 @@ function print_conductor($data) {
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Crear Vehiculo</strong> Formulario
+                                <strong>Crear Vehículo</strong> Formulario
                             </div>
                             <div class="card-body card-block">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">

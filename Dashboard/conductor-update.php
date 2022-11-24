@@ -81,7 +81,7 @@ function print_estados($data) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Crear Conductor</title>
+    <title>Actualizar Conductor</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -132,7 +132,7 @@ function print_estados($data) {
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Crear Conductor</strong> Formulario
+                                <strong>Actualizar Conductor</strong> Formulario
                             </div>
                             <div class="card-body card-block">
                                 <form action="conductor-update.php" method="post" enctype="multipart/form-data" class="form-horizontal">

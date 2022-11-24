@@ -80,7 +80,7 @@ function print_permisos($data) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Crear Usuario</title>
+    <title>Actualizar Usuario</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -130,7 +130,7 @@ function print_permisos($data) {
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Crear Usuario</strong> Formulario
+                                <strong>Actualizar Usuario</strong> Formulario
                             </div>
                             <div class="card-body card-block">
                                 <form action="" method="post" id="form" enctype="multipart/form-data" class="form-horizontal"
