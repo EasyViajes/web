@@ -1,8 +1,8 @@
 <?php
-require "$_SERVER[DOCUMENT_ROOT]/models/Vehiculo.php";
-require "$_SERVER[DOCUMENT_ROOT]/models/Conductor.php";
-require "$_SERVER[DOCUMENT_ROOT]/models/Estado.php";
-require "$_SERVER[DOCUMENT_ROOT]/utils/message-handlers.php";
+require "models/Vehiculo.php";
+require "models/Conductor.php";
+require "models/Estado.php";
+require "utils/message-handlers.php";
 
 session_start();
 
@@ -68,7 +68,7 @@ function print_estados($data) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Crear Pasaje</title>
+    <title>Actualizar Vehículo</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -120,7 +120,7 @@ function print_estados($data) {
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Crear Vehiculo</strong> Formulario
+                                <strong>Actualizar Vehiculo</strong> Formulario
                             </div>
                             <div class="card-body card-block">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">

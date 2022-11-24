@@ -55,7 +55,7 @@ function print_vehiculos($data) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Crear Pasaje</title>
+    <title>Crear Ruta</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
