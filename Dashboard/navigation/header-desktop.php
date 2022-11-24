@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 # load data
 $name = $_SESSION['nombre'];
 $mail = $_SESSION['mail'];
