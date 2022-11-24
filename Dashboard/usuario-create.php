@@ -7,7 +7,7 @@ require "utils/message-handlers.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -29,9 +29,9 @@ if ($_POST != Null) {
   );
 
   if (create_usuario($conn, $usuario)){
-    header("location: /usuario-list.php?msg=creationSuccess");
+    header("location: /Dashboard/usuario-list.php?msg=creationSuccess");
   }else{
-    header("location: /usuario-create.php?msg=creationFailed");
+    header("location: /Dashboard/usuario-create.php?msg=creationFailed");
   }
 }
 

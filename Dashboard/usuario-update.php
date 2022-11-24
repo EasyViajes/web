@@ -6,7 +6,7 @@ require "$_SERVER[DOCUMENT_ROOT]/models/Permiso.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -26,7 +26,7 @@ $old_usuario = array(
 
 foreach ($old_conductor as $data){
   if($data == Null) {
-    header("location: /conductor-list.php?msg=old_isNull");
+    header("location: /Dashboard/conductor-list.php?msg=old_isNull");
   }
 }
 
@@ -44,9 +44,9 @@ if ($_POST['update'] == 1) {
   );
 
   if (update_usuario($conn, $old_usuario, $new_usuario)){
-    header("location: /usuario-list.php?msg=successUpdate");
+    header("location: /Dashboard/usuario-list.php?msg=successUpdate");
   }else{
-    header("location: /usuario-create.php?msg=failedUpdate");
+    header("location: /Dashboard/usuario-create.php?msg=failedUpdate");
   }
 }
 

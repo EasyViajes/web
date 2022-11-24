@@ -6,7 +6,7 @@ require "models/Estado.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -26,7 +26,7 @@ $old_ruta = array(
 );
 foreach ($old_ruta as $data){
   if($data == Null) {
-    header("location: /ruta-list.php?msg=old_hasNull");
+    header("location: /Dashboard/ruta-list.php?msg=old_hasNull");
   }
 }
 
@@ -43,12 +43,12 @@ if ($_POST['update'] == 1) {
   );
 
   if(update_ruta($conn, $old_ruta, $new_ruta)){
-    header("location: /ruta-list.php?msg=successUpdate");
+    header("location: /Dashboard/ruta-list.php?msg=successUpdate");
   }
 
   else{
     // ruta
-    header("location: /ruta-list.php?msg=failedUpdate");
+    header("location: /Dashboard/ruta-list.php?msg=failedUpdate");
   }
 }
 

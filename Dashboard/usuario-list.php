@@ -4,7 +4,7 @@ require "models/Usuario.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -15,10 +15,10 @@ $usuarios = get_all_usuarios($conn);
 
 if ($_POST['id_usuario'] != Null) {
     if (delete_usuario($conn, $_POST['id_conductor'])){
-      header("location: /usuario-list.php?msg=successDelete");
+      header("location: /Dashboard/usuario-list.php?msg=successDelete");
     }
     else{
-      header("location: /usuario-create.php?msg=failedDelete");
+      header("location: /Dashboard/usuario-create.php?msg=failedDelete");
     }
 }
 

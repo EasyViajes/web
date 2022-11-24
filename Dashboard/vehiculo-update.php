@@ -7,7 +7,7 @@ require "$_SERVER[DOCUMENT_ROOT]/utils/message-handlers.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -35,9 +35,9 @@ if ($_POST['update'] == 1) {
   );
   
   if (update_vehiculo($conn, $old_vehiculo, $new_vehiculo)){
-    header("location: /vehiculo-list.php?msg=successUpdate");
+    header("location: /Dashboard/vehiculo-list.php?msg=successUpdate");
   }else{
-    header("location: /vehiculo-create.php?msg=failedUpdate");
+    header("location: /Dashboard/vehiculo-create.php?msg=failedUpdate");
   }
 }
 

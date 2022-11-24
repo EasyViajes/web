@@ -12,7 +12,7 @@ $permiso_data = $_SESSION["fk_permiso"];
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li class=" has-sub">
-                    <a class="js-arrow" href="/index.php">
+                    <a class="js-arrow" href="/Dashboard/index.php">
                         <i class="fas fa-tachometer-alt"></i>Panel Principal</a>
                 </li>
                 <?php
@@ -25,10 +25,10 @@ $permiso_data = $_SESSION["fk_permiso"];
                         <i class="fas fa-copy"></i>Conductores</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="/conductor-create.php">Crear Conductor</a>
+                            <a href="/Dashboard/conductor-create.php">Crear Conductor</a>
                         </li>
                         <li>
-			                <a href="/conductor-list.php">Lista de Conductores</a>
+			                <a href="/Dashboard/conductor-list.php">Lista de Conductores</a>
                         </li>
                     </ul>
                 </li>
@@ -41,10 +41,10 @@ $permiso_data = $_SESSION["fk_permiso"];
                         <i class="fas fa-copy"></i>Rutas</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="/ruta-create.php">Crear Ruta</a>
+                            <a href="/Dashboard/ruta-create.php">Crear Ruta</a>
                         </li>
                         <li>
-                            <a href="/ruta-list.php">Lista de Rutas</a>
+                            <a href="/Dashboard/ruta-list.php">Lista de Rutas</a>
                         </li>
                     </ul>
                 </li>
@@ -59,10 +59,10 @@ $permiso_data = $_SESSION["fk_permiso"];
                         <i class="fas fa-copy"></i>Vehiculos</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="/vehiculo-create.php">Crear Vehiculo</a>
+                            <a href="/Dashboard/vehiculo-create.php">Crear Vehiculo</a>
                         </li>
                         <li>
-                            <a href="/vehiculo-list.php">Lista de Vehiculos</a>
+                            <a href="/Dashboard/vehiculo-list.php">Lista de Vehiculos</a>
                         </li>
                     </ul>
                 </li>
@@ -78,10 +78,10 @@ $permiso_data = $_SESSION["fk_permiso"];
                         <i class="fas fa-copy"></i>Empresas</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="/empresa-create.php">Crear Empresa</a>
+                            <a href="/Dashboard/empresa-create.php">Crear Empresa</a>
                         </li>
                         <li>
-                            <a href="/empresa-list.php">Lista de Empresas</a>
+                            <a href="/Dashboard/empresa-list.php">Lista de Empresas</a>
                         </li>
                     </ul>
                 </li>
@@ -90,10 +90,10 @@ $permiso_data = $_SESSION["fk_permiso"];
                         <i class="fas fa-copy"></i>Usuarios</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="/usuario-create.php">Crear Usuario</a>
+                            <a href="/Dashboard/usuario-create.php">Crear Usuario</a>
                         </li>
                         <li>
-                            <a href="/usuario-list.php">Lista de Usuarios</a>
+                            <a href="/Dashboard/usuario-list.php">Lista de Usuarios</a>
                         </li>
                     </ul>
                 </li>
@@ -102,7 +102,7 @@ $permiso_data = $_SESSION["fk_permiso"];
 				
 				?>
                 <li>
-                    <a href="/ventas.php">
+                    <a href="/Dashboard/ventas.php">
                         <i class="fas fa-chart-bar"></i>Ventas</a>
                 </li>
             </ul>

@@ -1,5 +1,6 @@
 <?php
 function create_conductor($conn, $conductor){
+  var_dump($conductor);
   try {
     $sql = "INSERT INTO Conductor (rut, nombre, direccion, fecha_ingreso, fin_contrato, fk_estado, fk_empresa, fk_vehiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);

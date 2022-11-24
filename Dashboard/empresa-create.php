@@ -6,7 +6,7 @@ require "utils/message-handlers.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -22,9 +22,9 @@ if ($_POST != Null) {
     'fk_estado'       => 1
   );
   if (create_empresa($conn, $empresa)){
-    header("location: /empresa-list.php?msg=creationSuccess");
+    header("location: /Dashboard/empresa-list.php?msg=creationSuccess");
   }else{
-    header("location: /empresa-create.php?msg=creationFailed");
+    header("location: /Dashboard/empresa-create.php?msg=creationFailed");
   }
 }
 ?>

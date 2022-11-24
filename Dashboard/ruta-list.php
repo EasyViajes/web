@@ -7,7 +7,7 @@ require "utils/message-handlers.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -18,10 +18,10 @@ $rutas = get_rutas($conn, $_SESSION['fk_empresa']);
 
 if ($_POST['id_ruta'] != Null) {
     if (delete_ruta($conn, $_POST['id_ruta'])){
-      header("location: /ruta-list.php?msg=successDelete");
+      header("location: /Dashboard/ruta-list.php?msg=successDelete");
     }
     else{
-      header("location: /ruta-create.php?msg=failedDelete");
+      header("location: /Dashboard/ruta-create.php?msg=failedDelete");
     }
 }
 

@@ -39,13 +39,13 @@ $mail = $_SESSION['mail'];
                                 </div>
 
                                 <div class="account-dropdown__footer">
-                                    <a href="/security.php">
+                                    <a href="/Dashboard/security.php">
                                         <i class="zmdi zmdi-shield-security"></i>Seguridad
                                     </a>
                                 </div>
 
                                 <div class="account-dropdown__footer">
-                                    <a href="/logout.php">
+                                    <a href="/Dashboard/logout.php">
                                         <i class="zmdi zmdi-power"></i>Logout
                                     </a>
                                 </div>

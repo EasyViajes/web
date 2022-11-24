@@ -5,7 +5,7 @@ require "utils/message-handlers.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -16,10 +16,10 @@ $conductores = getConductores_all($conn, $_SESSION['fk_empresa']);
 
 if ($_POST['id_conductor'] != Null) {
     if (delete_conductor($conn, $_POST['id_conductor'])){
-      header("location: /conductor-list.php?msg=successDelete");
+      header("location: /Dashboard/conductor-list.php?msg=successDelete");
     }
     else{
-      header("location: /conductor-create.php?msg=failedDelete");
+      header("location: /Dashboard/conductor-create.php?msg=failedDelete");
     }
 }
 

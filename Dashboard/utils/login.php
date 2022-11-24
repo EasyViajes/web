@@ -31,10 +31,10 @@ function login($mail, $pwd)
     $_SESSION["fk_estado"]  =  $row["fk_estado"];
     $_SESSION["fk_empresa"] =  $row["fk_empresa"];
     $_SESSION["fecha_creacion"] =  $row["fecha_creacion"];
-    header("location: index.php");
+    header("location: /Dashboard/index.php");
   }
   else{
-    header("location: /login.php?msg=loginFailed");
+    header("location: /Dashboard/login.php?msg=loginFailed");
   }
 }
 
@@ -44,5 +44,5 @@ function logout(){
     session_destroy();
   }
 
-  header("location: /login.php?msg=sessionClosed");
+  header("location: /Dashboard/login.php?msg=sessionClosed");
 }

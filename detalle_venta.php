@@ -11,7 +11,7 @@ MercadoPago\SDK::setAccessToken('TEST-6099928014111868-050500-996855036f00e109b0
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 $preference->back_urls=array(
-  "success"=>"localhost:8080/venta-exitosa.php?id_ruta=$id_ruta&id_empresa=$id_empresa",
+  "success"=>"localhost:8081/venta-exitosa.php?id_ruta=$id_ruta&id_empresa=$id_empresa",
 );
 
 // Crea un ítem en la preferencia

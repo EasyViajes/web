@@ -4,7 +4,7 @@ require "utils/login.php";
 session_start();
 
 if (isset($_SESSION["id"])){
-  header("location: /index.php");
+  header("location: /Dashboard/index.php");
 }
 
 if (isset($_POST['email']) || isset($_POST['password'])) {

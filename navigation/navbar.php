@@ -9,7 +9,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a href="index.php" class="nav-link">Inicio</a></li>
 					<li class="nav-item"><a href="contact.php" class="nav-link">Contactanos</a></li>
-					<li class="nav-item"><a href="http://localhost:8081/login.php" class="nav-link">Panel Administrativo</a></li>
+					<li class="nav-item"><a href="localhost:8081/Dashboard/login.php" class="nav-link">Panel Administrativo</a></li>
 				</ul>
 			</div>
 		</div>

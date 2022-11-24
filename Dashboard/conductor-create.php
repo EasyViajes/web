@@ -6,7 +6,7 @@ require "utils/message-handlers.php";
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
@@ -26,10 +26,10 @@ if ($_POST != Null) {
     );
 
     if (create_conductor($conn, $conductor)){
-      header("location: /conductor-list.php?msg=successCreation");
+      header("location: /Dashboard/conductor-list.php?msg=successCreation");
     }
     else{
-      header("location: /conductor-create.php?msg=failedCreation");
+      header("location: /Dashboard/conductor-create.php?msg=failedCreation");
     }
 }
 
