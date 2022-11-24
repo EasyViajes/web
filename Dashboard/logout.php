@@ -1,5 +1,7 @@
 <?php
 require 'utils/login.php';
 session_start();
-logout();
+session_unset();
+session_destroy();
+header("location: /Dashboard/login.php?msg=sessionClosed");
 ?>
