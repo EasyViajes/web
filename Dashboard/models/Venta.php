@@ -4,7 +4,7 @@ function create_venta($conn, $venta){ try { $sql = "INSERT INTO Venta (fecha_com
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /conductor-create.php?err=failedPrepStmt"); exit();
+      header("location: /Dashboard/conductor-create.php?err=failedPrepStmt"); exit();
     }
     mysqli_stmt_bind_param($stmt, "siiii",
       $conductor['fecha_compra'],
@@ -107,7 +107,7 @@ function update_venta($conn, $old_venta, $new_venta){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /venta-create.php?error=updateFailed");
+      header("location: /Dashboard/venta-create.php?error=updateFailed");
       exit();
     }
 

@@ -5,7 +5,7 @@ function create_usuario($conn, $usuario){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /usuario-create.php?err=failedPrepStmt");
+      header("location: /Dashboard/usuario-create.php?err=failedPrepStmt");
       exit();
     }
 
@@ -37,7 +37,7 @@ function update_usuario($conn, $old_usuario, $new_usuario){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /usuario-create.php?error=updateFailed");
+      header("location: /Dashboard/usuario-create.php?error=updateFailed");
       exit();
     }
 

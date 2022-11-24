@@ -5,7 +5,7 @@ function create_vehiculo($conn, $vehiculo){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /vehiculo-create.php?msg=failedPrepStmt");
+      header("location: /Dashboard/vehiculo-create.php?msg=failedPrepStmt");
       exit();
     }
 
@@ -49,7 +49,7 @@ function update_vehiculo($conn, $old_vehiculo, $new_vehiculo){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /vehiculo-create.php?msg=updateFailed");
+      header("location: /Dashboard/vehiculo-create.php?msg=updateFailed");
       exit();
     }
 

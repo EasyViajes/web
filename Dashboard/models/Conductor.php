@@ -6,7 +6,7 @@ function create_conductor($conn, $conductor){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /conductor-create.php?err=failedPrepStmt");
+      header("location: /Dashboard/conductor-create.php?err=failedPrepStmt");
       exit();
     }
     mysqli_stmt_bind_param($stmt, "sssssiii",
@@ -27,7 +27,7 @@ function create_conductor($conn, $conductor){
   catch(Exception $e) {
     echo "Exception in create_conductor()\n";
     echo $e->getMessage();
-    header("location: /conductor-create.php?err=failedPrepStmt");
+    header("location: /Dashboard/conductor-create.php?err=failedPrepStmt");
   }
 }
 
@@ -63,7 +63,7 @@ function update_conductor($conn, $old_conductor, $new_conductor){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /conductor-create.php?error=updateFailed");
+      header("location: /Dashboard/conductor-create.php?error=updateFailed");
       exit();
     }
 

@@ -6,7 +6,7 @@ function create_ruta($conn, $ruta){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /ruta-create.php?err=failedPrepStmt");
+      header("location: /Dashboard/ruta-create.php?err=failedPrepStmt");
       exit();
     }
     mysqli_stmt_bind_param($stmt, "sisssiii",
@@ -64,7 +64,7 @@ function update_ruta($conn, $old_ruta, $new_ruta){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /ruta-create.php?msg=updateFailed");
+      header("location: /Dashboard/ruta-create.php?msg=updateFailed");
       exit();
     }
 

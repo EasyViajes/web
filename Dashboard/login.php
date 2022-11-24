@@ -66,7 +66,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
                         </div>
                         <!--volver-->
                         <div class="d-flex justify-content-between" style="margin-bottom: 20px">
-                          <p><a href="http://easyviajes.cl" class="text-primary">Volver</a></p>
+                          <p><a href="/index.php" class="text-primary">Volver</a></p>
                         </div>
                         <div class="login-form">
                             <form method="post" id="form" action="login.php">
