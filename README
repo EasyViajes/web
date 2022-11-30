@@ -15,6 +15,8 @@ SIMON-----------------------------------
 
 - Reemplazar IDs por nombres de los objetos.
 
+- Agregar mas estadisitcas en el index.php (cant vehiculos, conductores, etc.)
+
 FELIPE----------------------------------
 
 - Creacion de clientes
@@ -32,6 +34,9 @@ FELIPE----------------------------------
 OPCIONALES------------------------------
 
 - Implementar subdominios
-
+- Implementar Horario Laboral
 - Mapa para recorridos
 --> Puntos en la API
+- Choques de horarios en vehiculos, rutas y usuarios.
+- Panel de visualizacion de mejores rutas, vehiculos, conductores, etc.
+
