@@ -1,15 +1,14 @@
 
-ANTO------------------------------------ 
-- Filtro de busquedas
+## ANTO 
+- [ ] Filtro de busquedas
 --> Query SQL
 
-- Envio de mail de confirmacion
+- [ ] Envio de mail de confirmacion
 --> Implementar en Servidor
 
-SIMON-----------------------------------
+## SIMON
 
-- Corregir numeros negativos
---> En todos los paneles
+- [x] Corregir numeros negativos
 
 - Arreglar tablas y datos a desplegar
 
@@ -17,21 +16,21 @@ SIMON-----------------------------------
 
 - Agregar mas estadisitcas en el index.php (cant vehiculos, conductores, etc.)
 
-FELIPE----------------------------------
+## FELIPE
 
-- Creacion de clientes
+- [ ] Creacion de clientes
 --> Anulacion de pasajes
 --> Listado de pasajes comprados
 
-- Recuperacion de contrasenna
+- [ ] Recuperacion de contrasenna
 --> Cambio de estado.
 
-- Desplegar errores mas user friendly
+- [ ] Desplegar errores mas user friendly
 --> Eliminar los die()
 --> Mejorar el messageHandler();
 
 
-OPCIONALES------------------------------
+## OPCIONALES
 
 - Implementar subdominios
 - Implementar Horario Laboral
