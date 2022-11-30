@@ -1,5 +1,6 @@
 <?php
 require "utils/message-handlers.php";
+require "models/Usuario.php";
 session_start();
 
 
@@ -12,6 +13,26 @@ $id_empresa = $_SESSION['fk_empresa'];
 #conection
 require "utils/connection.php";
 $conn = create_connection();
+
+if ($_POST['update'] == 1) {
+  password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $user = array(
+    'id'        => $_SESSION['id'],
+    'nombre'    => $_POST['nombre'],
+    'mail'      => $_POST['mail'],
+    'password'  => password_hash($_POST['password'], PASSWORD_DEFAULT),
+  );
+
+  if (update_usuario_security($conn, $user)){
+      $_SESSION['nombre'] = $user['nombre'];
+      $_SESSION['mail'] = $user['mail'];
+      header("location: /Dashboard/index.php?msg=successUpdate");
+    }
+    else{
+      header("location: /Dashboard/index.php?msg=failedUpdate");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -76,18 +97,17 @@ $conn = create_connection();
                                 <strong>Seguridad de cuenta</strong> Formulario
                             </div>
                             <div class="card-body card-block">
-                                <form action="" method="post" id="form" enctype="multipart/form-data" class="form-horizontal"
+                                <form action="security.php" method="post" id="form" enctype="multipart/form-data" class="form-horizontal"
                                     action="security-edit.php">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">RUT Empresa</label>
+                                            <label for="text-input" class=" form-control-label">Nombre</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="rut" name="rut" placeholder="Ingrese Rut"
-                                                onkeypress="return isNumber(event)" oninput="checkRut(this)"
+                                            <input type="text" id="nombre" name="nombre" placeholder="Ingrese Rut"
+                                            value='<?php echo $_SESSION['nombre'] ?>'
                                                 class="form-control" required>
                                             <span id="mensaje2"></span>
-                                            <small class="form-text text-muted">RUT empresa</small>
                                         </div>
                                     </div>
                                     </br>
@@ -97,6 +117,7 @@ $conn = create_connection();
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="email" name="mail" onkeydown="validacionCorreo()"
+                                            value='<?php echo $_SESSION['mail'] ?>'
                                                 placeholder="Ingrese Mail" class="form-control" required>
                                             <small class="help-block form-text">correo</small>
                                             <span id="text"></span>
@@ -105,21 +126,10 @@ $conn = create_connection();
                                     </br>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="name-input" class=" form-control-label">Dirección</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="direccion" name="direccion"
-                                                placeholder="Ingrese Dirección" class="form-control" required>
-                                            <small class="help-block form-text">Dirección Empresa</small>
-                                        </div>
-                                    </div>
-                                    </br>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
                                             <label for="name-input" class=" form-control-label">Estado</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="estado" name="estado" value="ACTIVO" placeholder=""
+                                        <input type="text" id="estado" name="fk_estado" value="Activo" placeholder=""
                                                 class="form-control" required disabled>
                                             <small class="help-block form-text">Estado</small>
 
@@ -138,6 +148,7 @@ $conn = create_connection();
                                     </div>
                                     </br>
                                     <div class="card-footer">
+                                        <input type='hidden' id='update' name='update' value='1'/>
                                         <button type="submit" class="btn btn-success btn-sm" id="button1">
                                             <i class="fa fa-dot-circle-o"></i> Editar
                                         </button>

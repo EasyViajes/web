@@ -28,6 +28,7 @@ function login($mail, $pwd)
     $_SESSION["nombre"]     =  $row["nombre"];
     $_SESSION["mail"]       =  $row["mail"];
     $_SESSION["fk_permiso"] =  $row["fk_permiso"];
+    $_SESSION["direcicon"]  =  $row["direccion"];
     $_SESSION["fk_estado"]  =  $row["fk_estado"];
     $_SESSION["fk_empresa"] =  $row["fk_empresa"];
     $_SESSION["fecha_creacion"] =  $row["fecha_creacion"];
