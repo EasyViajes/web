@@ -1,5 +1,6 @@
 <?php
 require "models/Empresa.php";
+require "models/Estado.php";
 require "utils/message-handlers.php";
 
 session_start();
@@ -12,20 +13,45 @@ if(!isset($_SESSION['id'])) {
 require "utils/connection.php";
 $conn = create_connection();
 
-if ($_POST != Null) {
-  $empresa = array(
-    'rut'             => $_POST['rut'],
-    'nombre'          => $_POST['nombre'],
-    'fecha_creacion'  => date('Y-m-d'),
-    'direccion'       => $_POST['direccion'],
-    'fk_estado'       => 1
-  );
-  if (create_empresa($conn, $empresa)){
-    header("location: /Dashboard/empresa-list.php?msg=creationSuccess");
-  }else{
-    header("location: /Dashboard/empresa-create.php?msg=creationFailed");
+
+$old_empresa = array(
+  'id'              => $_POST['id'],
+  'rut'             => $_POST['rut'],
+  'nombre'          => $_POST['nombre'],
+  'direccion'       => $_POST['direccion'],
+  'fk_estado'       => $_POST['fk_estado']
+);
+
+foreach ($old_conductor as $data){
+  if($data == Null) {
+    header("location: /Dashboard/conductor-list.php?msg=old_isNull");
   }
 }
+
+if ($_POST['update'] == 1) {
+  $new_empresa = array(
+    'rut'             => $_POST['new_rut'],
+    'nombre'          => $_POST['new_nombre'],
+    'direccion'       => $_POST['new_direccion'],
+    'fk_estado'       => $_POST['new_fk_estado']
+  );
+
+  if (update_empresa($conn, $old_empresa, $new_empresa)){
+    header("location: /Dashboard/empresa-list.php?msg=updateSuccess");
+  }else{
+    header("location: /Dashboard/empresa-create.php?msg=updateFailed");
+  }
+}
+
+
+$estados = get_estados($conn);
+function print_estados($data) {
+  foreach ($data as $estado){
+    echo "<option value='", $estado['id'], "'>", $estado["nombre"], "</option>";
+  }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -47,10 +73,6 @@ if ($_POST != Null) {
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-
-
-
 
     <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
@@ -99,14 +121,22 @@ if ($_POST != Null) {
                                 <strong>Crear empresa</strong> Formulario
                             </div>
                             <div class="card-body card-block">
-                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal"
-                                    action="empresa-create.php">
+                                <form action="empresa-update.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                  <?php
+                                  echo "      <input type='hidden' id='id'            name='id'             value='", $old_empresa['id'],"'/>";
+                                  echo "      <input type='hidden' id='rut'           name='rut'            value='", $old_empresa['rut'],"'/>";
+                                  echo "      <input type='hidden' id='nombre'        name='nombre'         value='", $old_empresa['nombre'],"'/>";
+                                  echo "      <input type='hidden' id='direccion'     name='direccion'      value='", $old_empresa['direccion'],"'/>";
+                                  echo "      <input type='hidden' id='fecha_creacion'name='fecha_creacion' value='", $old_empresa['fecha_creacion'],"'/>";
+                                  echo "      <input type='hidden' id='fk_estado'     name='fk_estado'      value='", $old_empresa['fk_estado'],"'/>";
+                                  ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">RUT</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="rut" name="rut" placeholder="Ingrese Rut"
+                                            <input type="text" id="rut" name="new_rut" placeholder="Ingrese Rut"
+                                            value='<?php echo $old_empresa['rut'] ?>'
                                                 onkeypress="return isNumber(event)" oninput="checkRut(this)"
                                                 class="form-control" required>
                                             <span id="mensaje2"></span>
@@ -118,22 +148,39 @@ if ($_POST != Null) {
                                             <label type="text" class=" form-control-label">Nombre</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="nombre" name="nombre" placeholder="Ingrese Nombre"
+                                            <input type="text" id="nombre" name="new_nombre" placeholder="Ingrese Nombre"
+                                            value='<?php echo $old_empresa['nombre'] ?>'
                                                 class="form-control" required>
                                             <small class="help-block form-text">Ingresar Nombre</small>
                                         </div>
                                     </div>
+
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="name-input" class=" form-control-label">Dirección</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="direccion" name="direccion"
+                                            <input type="text" id="direccion" name="new_direccion"
+                                            value='<?php echo $old_empresa['direccion'] ?>'
                                                 placeholder="Ingrese Dirección" class="form-control" required>
                                             <small class="help-block form-text">Ingresar Dirección</small>
                                         </div>
                                     </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="select" class=" form-control-label">Estado</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="new_fk_estado" id="fk_estado" class="form-control" required>
+                                                <?php print_estados($estados);?>
+                                            </select>
+                                            <small class="help-block form-text">Seleccione un Estado</small>
+                                        </div>
+                                    </div>
+
                                     <div class="card-footer">
+                                        <input type='hidden' id='update' name='update' value='1'/>
                                         <button type="submit" class="btn btn-primary btn-sm" id="button1">
                                             <i class="fa fa-dot-circle-o"></i> Ingresar
                                         </button>

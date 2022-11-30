@@ -1,6 +1,6 @@
 <?php
-require "utils/message-handlers.php";
 require "models/Empresa.php";
+require "utils/message-handlers.php";
 
 session_start();
 
@@ -14,6 +14,15 @@ $conn = create_connection();
 
 $empresas = get_empresas($conn);
 
+if ($_POST['id_empresa'] != Null) {
+    if (delete_empresa($conn, $_POST['id_empresa'])){
+      header("location: /Dashboard/empresa-list.php?msg=successDelete");
+    }
+    else{
+      header("location: /Dashboard/empresa-create.php?msg=failedDelete");
+    }
+}
+
 function print_empresa($data){
   foreach ($data as $empresa){
     echo "<tr>";
@@ -23,16 +32,27 @@ function print_empresa($data){
     echo "  <td>", $empresa['nombre'],"</td>";
     echo "  <td>", $empresa['direccion'],"</td>";
     echo "  <td>", $empresa['fecha_creacion'],"</td>";
-    echo "  <td class='text-center'>";
-    echo "    <button type='button' class='btn btn-success btn-modal text-center'";
-    echo "      data-bs-toggle='modal' data-bs-target='#staticBackdrop'>";
-    echo "      <i class='fa-regular fa-pen-to-square'></i>'";
-    echo "    </button>";
+
+    echo "  <td>";
+    echo "    <form action='/Dashboard/empresa-update.php' method='POST'>";
+    echo "      <input type='hidden' id='id'            name='id'             value='", $empresa['id'],"'/>";
+    echo "      <input type='hidden' id='rut'           name='rut'            value='", $empresa['rut'],"'/>";
+    echo "      <input type='hidden' id='nombre'        name='nombre'         value='", $empresa['nombre'],"'/>";
+    echo "      <input type='hidden' id='direccion'     name='direccion'      value='", $empresa['direccion'],"'/>";
+    echo "      <input type='hidden' id='fk_estado'     name='fk_estado'      value='", $empresa['fk_estado'],"'/>";
+    echo "      <button type='submit' class='btn btn-success btn-modal text-center'>";
+    echo "        <i class='fa-regular fa-pen-to-square'></i>'";
+    echo "      </button>";
+    echo "    </form>";
     echo "  </td>";
-    echo "  <td class='text-center'>";
-    echo "    <button type='button' class='btn btn-danger btn-modal text-center'>";
+
+    echo "  <td>";
+    echo "    <form action='empresa-list.php' method='POST'>";
+    echo "      <input type='hidden' id='id_empresa' name='id_empresa' value='", $empresa['id'],"'/>";
+    echo "      <button type='submit' class='btn btn-danger btn-modal text-center'>";
     echo "      <i class='fa-solid fa-trash'></i>'";
     echo "    </button>";
+    echo "    </form>";
     echo "  </td>";
     echo "</tr>";
   }
