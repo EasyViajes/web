@@ -2,7 +2,6 @@
 ## ANTO 
 - [ ] Filtro de busquedas
 - [ ] Query SQL
-
 - [ ] Envio de mail de confirmacion
 - [ ] Implementar en Servidor
 
@@ -18,10 +17,8 @@
 - [ ] Creacion de clientes
 - [ ] Anulacion de pasajes
 - [ ] Listado de pasajes comprados
-
 - [ ] Recuperacion de contrasenna
 - [ ] Cambio de estado.
-
 - [ ] Desplegar errores mas user friendly
 - [ ] Eliminar los die()
 - [ ] Mejorar el messageHandler();
