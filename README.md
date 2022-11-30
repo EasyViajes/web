@@ -1,33 +1,30 @@
 
 ## ANTO 
 - [ ] Filtro de busquedas
---> Query SQL
+- [ ] Query SQL
 
 - [ ] Envio de mail de confirmacion
---> Implementar en Servidor
+- [ ] Implementar en Servidor
 
 ## SIMON
 
 - [x] Corregir numeros negativos
-
-- Arreglar tablas y datos a desplegar
-
-- Reemplazar IDs por nombres de los objetos.
-
-- Agregar mas estadisitcas en el index.php (cant vehiculos, conductores, etc.)
+- [ ] Arreglar tablas y datos a desplegar
+- [ ] Reemplazar IDs por nombres de los objetos.
+- [ ] Agregar mas estadisitcas en el index.php (cant vehiculos, conductores, etc.)
 
 ## FELIPE
 
 - [ ] Creacion de clientes
---> Anulacion de pasajes
---> Listado de pasajes comprados
+- [ ] Anulacion de pasajes
+- [ ] Listado de pasajes comprados
 
 - [ ] Recuperacion de contrasenna
---> Cambio de estado.
+- [ ] Cambio de estado.
 
 - [ ] Desplegar errores mas user friendly
---> Eliminar los die()
---> Mejorar el messageHandler();
+- [ ] Eliminar los die()
+- [ ] Mejorar el messageHandler();
 
 
 ## OPCIONALES
