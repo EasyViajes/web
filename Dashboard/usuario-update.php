@@ -1,7 +1,9 @@
 <?php
-require "$_SERVER[DOCUMENT_ROOT]/models/Usuario.php";
-require "$_SERVER[DOCUMENT_ROOT]/models/Empresa.php";
-require "$_SERVER[DOCUMENT_ROOT]/models/Permiso.php";
+require "models/Usuario.php";
+require "models/Empresa.php";
+require "models/Permiso.php";
+require "models/Estado.php";
+require "utils/message-handlers.php";
 
 session_start();
 
@@ -10,11 +12,12 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "$_SERVER[DOCUMENT_ROOT]/utils/connection.php";
+require "utils/connection.php";
 $conn = create_connection();
 
 
 $old_usuario = array(
+  'id'              => $_POST['id'],
   'nombre'          => $_POST['nombre'],
   'mail'            => $_POST['mail'],
   'password'        => $_POST['password'],
@@ -37,11 +40,12 @@ if ($_POST['update'] == 1) {
     'nombre'          => $_POST['new_nombre'],
     'mail'            => $_POST['new_mail'],
     'password'        => $new_password,
-    'fecha_creacion'  => $_POST['new_fecha_creacion'],
+    'fecha_creacion'  => $_POST['fecha_creacion'],
     'fk_estado'       => $_POST['new_fk_estado'],
     'fk_empresa'      => $_POST['new_fk_empresa'],
     'fk_permiso'      => $_POST['new_fk_permiso'],
   );
+
 
   if (update_usuario($conn, $old_usuario, $new_usuario)){
     header("location: /Dashboard/usuario-list.php?msg=successUpdate");
@@ -61,6 +65,14 @@ $permisos = get_permisos($conn);
 function print_permisos($data) {
   foreach ($data as $permiso){
     echo "<option value='", $permiso['id'], "'>", $permiso["nombre"], "</option>";
+  }
+}
+
+$estados = get_estados($conn);
+
+function print_estados($data) {
+  foreach ($data as $estado){
+    echo "<option value='", $estado['id'], "'>", $estado["nombre"], "</option>";
   }
 }
 
@@ -133,14 +145,24 @@ function print_permisos($data) {
                                 <strong>Actualizar Usuario</strong> Formulario
                             </div>
                             <div class="card-body card-block">
-                                <form action="" method="post" id="form" enctype="multipart/form-data" class="form-horizontal"
-                                    action="empresa-create.php">
+                                <form action="usuario-update.php" method="post" id="form" enctype="multipart/form-data" class="form-horizontal">
+<?php
+    echo "      <input type='hidden' name='id'            value='", $old_usuario['id'],"'/>";
+    echo "      <input type='hidden' name='mail'          value='", $old_usuario['mail'],"'/>";
+    echo "      <input type='hidden' name='nombre'        value='", $old_usuario['nombre'],"'/>";
+    echo "      <input type='hidden' name='fk_estado'     value='", $old_usuario['fk_estado'],"'/>";
+    echo "      <input type='hidden' name='fk_empresa'    value='", $old_usuario['fk_empresa'],"'/>";
+    echo "      <input type='hidden' name='fk_permiso'    value='", $old_usuario['fk_permiso'],"'/>";
+    echo "      <input type='hidden' name='fecha_creacion'value='", $old_usuario['fecha_creacion'],"'/>";
+
+?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="name-input" class=" form-control-label">Nombre</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="nombre" name="nombre" placeholder="Ingrese Nombre"
+                                            <input type="text" id="nombre" name="new_nombre" placeholder="Ingrese Nombre"
+                                            value='<?php echo $old_usuario['nombre'] ?>'
                                                 class="form-control" required>
                                             <small class="help-block form-text">Ingresar Nombre</small>
                                         </div>
@@ -150,7 +172,8 @@ function print_permisos($data) {
                                             <label for="text-input" class=" form-control-label">Mail</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="email" name="mail" onkeydown="validacionCorreo()"
+                                            <input type="text" id="email" name="new_mail" onkeydown="validacionCorreo()"
+                                            value='<?php echo $old_usuario['mail'] ?>'
                                                 placeholder="Ingrese Mail" class="form-control" required>
                                                 <small class="help-block form-text">Ingresar Correo</small>
                                             <span id="text"></span>
@@ -161,7 +184,7 @@ function print_permisos($data) {
                                             <label type="text" class=" form-control-label">Contraseña</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="password" id="password" name="password"
+                                            <input type="password" id="password" name="new_password"
                                                 onkeydown="validacionpwd()" placeholder="Ingrese Contraseña"
                                                 class="form-control" required>
                                             <small class="help-block form-text">Ingresar Contraseña</small>
@@ -169,31 +192,47 @@ function print_permisos($data) {
 
                                         </div>
                                     </div>
+
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">Empresa</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <select name="fk_empresa" id="fk_empresa" class="form-control" required>
+                                            <select name="new_fk_empresa" id="fk_empresa" class="form-control" required>
                                               <option value="0">---</option>
                                               <?php print_empresas($empresas); ?>
                                             </select>
                                             <small class="help-block form-text">Seleccione Empresa</small>
                                         </div>
                                     </div>
+
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">Permiso</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <select name="fk_permiso" id="fk_permiso" class="form-control" required>
+                                            <select name="new_fk_permiso" id="fk_permiso" class="form-control" required>
                                               <option value="0">---</option>
                                               <?php print_permisos($permisos); ?>
                                             </select>
                                             <small class="help-block form-text">Seleccione Permiso</small>
                                         </div>
                                     </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="select" class=" form-control-label">Estado</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="new_fk_estado" id="fk_estado" class="form-control" required>
+                                              <?php print_estados($estados); ?>
+                                            </select>
+                                            <small class="help-block form-text">Seleccione Estado</small>
+                                        </div>
+                                    </div>
+
                                     <div class="card-footer">
+                                        <input type='hidden' id='update' name='update' value='1'/>
                                         <button type="submit" class="btn btn-primary btn-sm" id="button1">
                                             <i class="fa fa-dot-circle-o"></i> Ingresar
                                         </button>

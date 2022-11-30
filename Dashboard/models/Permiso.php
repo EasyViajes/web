@@ -10,6 +10,5 @@ function get_permisos($conn){
     $rows[] = $row;
 
   }
-  mysqli_close($conn);
   return $rows;
 }

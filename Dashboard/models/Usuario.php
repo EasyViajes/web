@@ -72,7 +72,6 @@ function get_usuarios($conn, $id_empresa){
     $rows[] = $row;
 
   }
-  mysqli_close($conn);
   return $rows;
 }
 

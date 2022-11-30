@@ -36,7 +36,6 @@ function getPasajes_all($conn, $id_empresa){
     $rows[] = $row;
 
   }
-  mysqli_close($conn);
   return $rows;
 }
 

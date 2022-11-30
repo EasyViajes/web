@@ -24,6 +24,7 @@ $old_ruta = array(
   'fk_vehiculo'       => $_POST['fk_vehiculo'],
   'fk_empresa'        => $_POST['fk_empresa'],
 );
+
 foreach ($old_ruta as $data){
   if($data == Null) {
     header("location: /Dashboard/ruta-list.php?msg=old_hasNull");
