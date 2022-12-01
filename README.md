@@ -15,6 +15,7 @@
 ## FELIPE
 
 - [ ] Creacion de clientes
+- [ ] Confirmacion de venta
 - [ ] Anulacion de pasajes
 - [ ] Listado de pasajes comprados
 - [ ] Recuperacion de contrasenna
