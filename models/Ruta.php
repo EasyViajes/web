@@ -54,7 +54,6 @@ function getRuta_pasaje($conn, $id_ruta){
     $rows[] = $row;
   }
 
-  mysqli_close($conn);
   return $rows;
 }
 

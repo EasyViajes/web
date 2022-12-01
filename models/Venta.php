@@ -4,11 +4,7 @@ function create_venta($conn, $venta){ try { $sql = "INSERT INTO Venta (fecha_com
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-<<<<<<< HEAD
       header("location: /Dashboard/conductor-create.php?err=failedPrepStmt"); exit();
-=======
-      header("location: /Dashboard/venta-create.php?err=failedPrepStmt"); exit();
->>>>>>> f15eae7538deb27a068a3203d70226911498b687
     }
     mysqli_stmt_bind_param($stmt, "siii",
       $conductor['fecha_compra'],

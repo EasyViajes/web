@@ -41,7 +41,7 @@ function get_empresas($conn){
 
 function update_empresa($conn, $old_empresa, $new_empresa){
   try {
-    $sql = "UPDATE Empresa SET rut=?, nombre=?, fecha_creacion=?, direccion=?, fk_estado=? WHERE id=?";
+    $sql = "UPDATE Empresa SET rut=?, nombre=?, direccion=?, fk_estado=? WHERE id=?";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -49,10 +49,10 @@ function update_empresa($conn, $old_empresa, $new_empresa){
       exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ssssii",
+
+    mysqli_stmt_bind_param($stmt, "sssii",
       $new_empresa['rut'],
       $new_empresa['nombre'],
-      $new_empresa['fecha_creacion'],
       $new_empresa['direccion'],
       $new_empresa['fk_estado'],
 
@@ -60,6 +60,7 @@ function update_empresa($conn, $old_empresa, $new_empresa){
     );
 
     $result = mysqli_stmt_execute($stmt);
+
     mysqli_stmt_close($stmt);
     return $result;
   }
