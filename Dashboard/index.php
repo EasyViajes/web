@@ -22,6 +22,10 @@ $ventas_semana = getVentas_dia($conn, $id_empresa);
 
 $ultimas_ventas = get_ventas($conn, $id_empresa);
 
+# Vehiculos
+include "models/Vehiculo.php";
+$ultimos_vehiculos = get_vehiculos($conn, $id_empresa);
+
 # data print methods
 function print_ultimasVentas($data){
   foreach ($data as $venta){
@@ -33,6 +37,15 @@ function print_ultimasVentas($data){
     echo "</tr>";
   }
 }
+
+function print_ultimosVehiculos($data){
+    foreach ($data as $vehiculo){
+      echo "<tr>";
+      echo "  <td>", $vehiculo['marca'], "</td>";
+      echo "  <td>", $vehiculo['patente'], "</td>";
+      echo "</tr>";
+    }
+  }
 
 ?>
 
@@ -101,7 +114,7 @@ function print_ultimasVentas($data){
                             </div>
                         </div>
                         <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c1">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -109,15 +122,15 @@ function print_ultimasVentas($data){
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                            <h2><?php echo "$conductores_activos"?></h2>
+                                                <h2><?php echo "$conductores_activos"?></h2>
                                                 <span>Conductores Activos</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <br/>
+                                    <br />
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c2">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -125,15 +138,15 @@ function print_ultimasVentas($data){
                                                 <i class="zmdi zmdi-shopping-cart"></i>
                                             </div>
                                             <div class="text">
-                                            <h2><?php echo $ventas_dia?></h2>
-                                                <span>Ventas del Dia</span>
+                                                <h2><?php echo $ventas_dia?></h2>
+                                                <span>Ventas del Día</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <br/>
+                                    <br />
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c3">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -141,18 +154,19 @@ function print_ultimasVentas($data){
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                            <h2><?php echo $ventas_semana?></h2>
+                                                <h2><?php echo $ventas_semana?></h2>
                                                 <span>Ventas Semanales</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <br/>
+                                    <br />
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">Ultimas Ventas</h2>
+                                <h2 class="title-1 m-b-25">Últimas Ventas</h2>
                                 <div class="table-responsive table--no-card m-b-40">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
@@ -168,7 +182,28 @@ function print_ultimasVentas($data){
                                     </table>
                                 </div>
                             </div>
+                            <div class="col-lg-3">
+                                <h2 class="title-1 m-b-25">Últimos vehículos</h2>
+                                <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
+                                    <div class="au-card-inner">
+                                        <div class="table-responsive">
+                                            <table class="table table-top-countries">
+                                                <thead>
+                                                    <tr>
+                                                        <td class="text-light">Marca</td>
+                                                        <td class="text-light">Patente</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-light">
+                                                    <?php print_ultimosVehiculos($ultimos_vehiculos);?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">

@@ -87,3 +87,19 @@ function delete_vehiculo($conn, $id){
     die();
   }
 }
+
+function get_ultimos_vehiculos($conn, $id_vehiculo){
+  $query = "SELECT * FROM Vehiculo ORDER BY id =$id_vehiculo";
+
+  try {
+    $response = mysqli_query($conn, $query);
+    $result = mysqli_fetch_assoc($response);
+
+    return $result;
+  }
+  catch(Exception $e){
+    echo $e->getMessage();
+    die();
+  }
+
+}

@@ -120,7 +120,7 @@ function print_estados($data) {
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Actualizar Vehiculo</strong> Formulario
+                                <strong>Actualizar Vehículo</strong> Formulario
                             </div>
                             <div class="card-body card-block">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -162,7 +162,7 @@ function print_estados($data) {
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="asientos" name="new_asientos"
                                               value="<?php echo $old_vehiculo['asientos']?>"
-                                                placeholder="Ingrese asiento" class="form-control" required>
+                                                placeholder="Ingrese asiento" class="form-control" min="1" max="4" required>
                                             <small class="help-block form-text">Ingresar asientos</small>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@ function print_estados($data) {
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="mensualidad" name="new_mensualidad"
                                               value="<?php echo $old_vehiculo['mensualidad']?>"
-                                                placeholder="Ingrese mensualidad" class="form-control" required>
+                                                placeholder="Ingrese mensualidad" class="form-control" min="1" required>
                                             <small class="help-block form-text">Ingresar mensualidad</small>
                                         </div>
                                     </div>

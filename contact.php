@@ -33,9 +33,9 @@
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
                     <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Inicio <i
-                                    class="fa fa-chevron-right"></i></a></span> <span>Contactanos <i
+                                    class="fa fa-chevron-right"></i></a></span> <span>Contáctanos <i
                                 class="fa fa-chevron-right"></i></span></p>
-                    <h1 class="mb-0 bread">Contactanos</h1>
+                    <h1 class="mb-0 bread">Contáctanos</h1>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-phone"></span>
                         </div>
-                        <h3 class="mb-2">Numero de contacto</h3>
+                        <h3 class="mb-2">Número de contacto</h3>
                         <p><a href="tel://1234567920">+56942190661</a></p>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-globe"></span>
                         </div>
-                        <h3 class="mb-2">Pagina Web</h3>
+                        <h3 class="mb-2">Página Web</h3>
                         <p><a href="#">easyviajes.cl</a></p>
                     </div>
                 </div>
