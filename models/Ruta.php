@@ -57,6 +57,19 @@ function getRuta_pasaje($conn, $id_ruta){
   return $rows;
 }
 
+function get_all_rutas($conn){
+  $query="SELECT * FROM Ruta";
+	$result = mysqli_query($conn, $query);
+
+  /* fetch associative array */
+  $rows = array();
+  while ($row = mysqli_fetch_assoc($result)){
+    $rows[] = $row;
+  }
+
+  return $rows;
+}
+
 function update_ruta($conn, $old_ruta, $new_ruta){
   try {
     $sql = "UPDATE Ruta SET hora_salida=?, precio=?, direccion_origen=?, direccion_destino=?, fk_estado=?, fk_vehiculo=? WHERE id=?";

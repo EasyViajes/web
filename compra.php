@@ -95,19 +95,21 @@ require "$_SERVER[DOCUMENT_ROOT]/models/Ruta.php";
                             <input placeholder="Nombre" id="nombre" name="nombre" type="text" class="form-control" required>
 
                         </div>
+
                         <div class="form-group">
                             <input placeholder="Apellidos" id="apellido" name="apellido" type="text" class="form-control"
                                 required>
-
                         </div>
+
                         <div class="form-group">
                             <input placeholder="Correo" id="inp_email" name="mail" type="email" class="form-control" required>
-
                         </div>
+
                         <div class="form-group">
                             <input placeholder="Celular" id="inp_celular" name="celular"  type="number" class="form-control"  min="1" required>
 
                         </div>
+
                         <div class="form-group">
                             <input type="submit" value="Comprar" class="btn btn-primary py-3 px-5"
                                 onclick="comprarBoleto()">
