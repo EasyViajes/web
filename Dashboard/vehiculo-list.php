@@ -128,7 +128,7 @@ function print_vehiculo($data){
                         <div class="card">
 
                             <div class="card-header">
-                                <h4>Tabla de Vehiculos</h4>
+                                <h4>Tabla de Vehículos</h4>
                             </div>
                             <div class="card-body">
 

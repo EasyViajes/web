@@ -117,7 +117,7 @@ function print_vehiculos($data) {
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="precio" name="precio" placeholder="Ingrese Precio"
-                                                class="form-control" required>
+                                                class="form-control" min="1" required>
                                             <small class="help-block form-text">Ingresar Precio</small>
                                         </div>
                                     </div>
@@ -152,14 +152,14 @@ function print_vehiculos($data) {
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="select" class=" form-control-label">Vehiculo</label>
+                                            <label for="select" class=" form-control-label">Vehículo</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <select name="fk_vehiculo" id="select-empresa" class="form-control" required>
                                                 <option value="0">---</option>
                                                 <?php print_vehiculos($vehiculos);?>
                                             </select>
-                                            <small class="help-block form-text">Seleccione un Vehiculo</small>
+                                            <small class="help-block form-text">Seleccione un Vehículo</small>
                                         </div>
                                     </div>
                                     <div class="card-footer">

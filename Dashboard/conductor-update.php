@@ -216,13 +216,13 @@ function print_estados($data) {
 
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="select" class=" form-control-label">Vehiculo</label>
+                                            <label for="select" class=" form-control-label">Vehículo</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <select name="new_fk_vehiculo" id="fk_vehiculo" class="form-control" required>
                                                 <?php print_vehiculos($vehiculos);?>
                                             </select>
-                                            <small class="help-block form-text">Seleccione un Vehiculo</small>
+                                            <small class="help-block form-text">Seleccione un Vehículo</small>
                                         </div>
                                     </div>
                                     <div class="card-footer">

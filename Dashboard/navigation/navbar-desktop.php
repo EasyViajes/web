@@ -56,13 +56,13 @@ $permiso_data = $_SESSION["fk_permiso"];
                 ?>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-copy"></i>Vehiculos</a>
+                        <i class="fas fa-copy"></i>Vehículos</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="/Dashboard/vehiculo-create.php">Crear Vehiculo</a>
+                            <a href="/Dashboard/vehiculo-create.php">Crear Vehículo</a>
                         </li>
                         <li>
-                            <a href="/Dashboard/vehiculo-list.php">Lista de Vehiculos</a>
+                            <a href="/Dashboard/vehiculo-list.php">Lista de Vehículos</a>
                         </li>
                     </ul>
                 </li>

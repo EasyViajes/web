@@ -134,7 +134,7 @@ function print_conductor($data) {
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="asientos" name="asientos"
-                                                placeholder="Ingrese asiento" class="form-control" required>
+                                                placeholder="Ingrese asiento" class="form-control" min="1" max="4" required>
                                             <small class="help-block form-text">Ingresar asientos</small>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@ function print_conductor($data) {
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="mensualidad" name="mensualidad"
-                                                placeholder="Ingrese mensualidad" class="form-control" required>
+                                                placeholder="Ingrese mensualidad" class="form-control" min="1" required>
                                             <small class="help-block form-text">Ingresar mensualidad</small>
                                         </div>
                                     </div>

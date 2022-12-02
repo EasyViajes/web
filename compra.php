@@ -106,7 +106,8 @@ require "$_SERVER[DOCUMENT_ROOT]/models/Ruta.php";
                         </div>
 
                         <div class="form-group">
-                            <input placeholder="Celular" id="inp_celular" name="celular" type="number" class="form-control" required>
+                            <input placeholder="Celular" id="inp_celular" name="celular"  type="number" class="form-control"  min="1" required>
+
                         </div>
 
                         <div class="form-group">

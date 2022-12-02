@@ -155,7 +155,7 @@ function print_estados($data) {
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="precio" name="new_precio" placeholder="Ingrese Precio" 
                                             value="<?php echo $old_ruta['precio'] ?>"
-                                                class="form-control" required>
+                                                class="form-control" min="1" required>
                                             <small class="help-block form-text">Ingresar Precio</small>
                                         </div>
                                     </div>
