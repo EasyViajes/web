@@ -35,9 +35,9 @@ function print_rutas($data){
     echo "  <td>", $ruta['direccion_origen'], " - ", $ruta['direccion_destino'], "</td>";
     echo "  <td>", $ruta['fk_vehiculo'], "</td>";
     echo "  <td>", $ruta['fecha_creacion'], "</td>";
-    echo "  <td>", $ruta['direccion_origen'], " - ", $ruta['direccion_destino'], "</td>";
     echo "  <td>", $ruta['fk_estado'], "</td>";
     echo "  <td>", $ruta['fk_empresa'], "</td>";
+    
 
     echo "  <td>";
     echo "    <form action='/Dashboard/ruta-update.php' method='POST'>";
@@ -146,10 +146,12 @@ function print_rutas($data){
                                             <th data-priority="1">Más</th>
                                             <th>#</th>
                                             <th data-priority="2">Hora Salida</th>
+                                            <th>Precio</th>
                                             <th>Ruta</th>
-                                            <th data-priority="3">Vehiculo</th>
+                                            <th data-priority="3">Vehículo</th>
+                                            <th>Fecha de creación</th>
+                                            <th>Estado</th>
                                             <th>Empresa</th>
-                                            <th>Fecha de Creacion</th>
                                             <th data-priority="4">Editar</th>
                                             <th data-priority="5">Borrar</th>
                                         </tr>

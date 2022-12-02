@@ -117,7 +117,7 @@ function print_vehiculos($data) {
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="precio" name="precio" placeholder="Ingrese Precio"
-                                                class="form-control" required>
+                                                class="form-control" min="1" required>
                                             <small class="help-block form-text">Ingresar Precio</small>
                                         </div>
                                     </div>

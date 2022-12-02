@@ -8,7 +8,7 @@
 ## SIMON
 
 - [x] Corregir numeros negativos
-- [ ] Arreglar tablas y datos a desplegar
+- [x] Arreglar tablas y datos a desplegar
 - [ ] Reemplazar IDs por nombres de los objetos.
 - [ ] Agregar mas estadisitcas en el index.php (cant vehiculos, conductores, etc.)
 
