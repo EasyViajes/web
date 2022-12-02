@@ -1,7 +1,7 @@
 <?php
 
-function generate_secreto($strength = 16) {
-    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function generate_secreto($strength = 10) {
+    $permitted_chars = '0123456789';
     $permitted_length = strlen($permitted_chars);
     $random_string = '';
     for($i = 0; $i < $strength; $i++) {
@@ -12,21 +12,19 @@ function generate_secreto($strength = 16) {
     return $random_string;
 }
 
-function create_cliente($conn, $cliente){
+function create_cliente($conn, $mail){
   try {
-    $sql = "INSERT INTO Cliente (nombre, apellido, mail, secreto, fecha_creacion) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO Cliente (mail, secret, fecha_creacion) VALUES (?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /Dashboard/cliente-create.php?msg=creationFailed");
+      header("location: /index.php?msg=creationFailed");
       exit();
     }
     mysqli_stmt_bind_param($stmt, "sss",
-      $cliente['nombre'],
-      $cliente['apellido'],
-      $cliente['mail'],
-      $cliente['secreto'],
-      $cliente['fecha_creacion']
+      $mail,
+      generate_secreto(),
+      date('Y-m-d')
     );
 
     mysqli_stmt_execute($stmt);
@@ -45,7 +43,7 @@ function create_cliente($conn, $cliente){
 
 function update_cliente($conn, $old_cliente, $new_cliente){
   try {
-    $sql = "UPDATE Cliente SET nombre=?, apellido=?, mail=?, secreto=?, fecha_creacion=? WHERE id=?";
+    $sql = "UPDATE Cliente SET mail=?, secreto=? WHERE id=?";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -53,12 +51,9 @@ function update_cliente($conn, $old_cliente, $new_cliente){
       exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "sssssi",
-      $new_cliente['nombre'],
-      $new_cliente['apellido'],
+    mysqli_stmt_bind_param($stmt, "ssi",
       $new_cliente['mail'],
       $new_cliente['secreto'],
-      $new_cliente['fecha_creacion'],
 
       $old_cliente['id'],
     );
@@ -87,3 +82,29 @@ function delete_cliente($conn, $id){
   }
 }
 
+function get_cliente_by_mail($conn, $mail){
+  $sql = "SELECT * FROM Cliente WHERE mail=?";
+  $stmt = mysqli_stmt_init($conn);
+
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location: /index.php?msg=failedGetCliente");
+    exit();
+  }
+
+  try{
+    mysqli_stmt_bind_param($stmt, "s", $mail);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    //$row = fetch_assoc
+
+
+    mysqli_stmt_close($stmt);
+
+    return $result;
+  }
+  catch(Exception $e) {
+    echo "Exception in update_cliente()\n";
+    echo $e->getMessage();
+    die();
+  }
+}
