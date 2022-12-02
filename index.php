@@ -56,7 +56,7 @@
                                         href="#v-pills-1" role="tab" aria-controls="v-pills-1"
                                         aria-selected="true">Comprar Boletos</a>
 
-                                    <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"
+                                    <a class="nav-link" id="v-pills-2-tab" href="/Anulacion/"
                                         role="tab" aria-controls="v-pills-2" aria-selected="false">Anulación de
                                         Boletos</a>
 
@@ -116,42 +116,6 @@
                                                         <div class="form-field w-100 align-items-center d-flex">
                                                             <input type="submit" value="Buscar"
                                                                 class="align-self-stretch form-control btn btn-primary">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- Busquedad de anulacion de boleto -->
-                                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel"
-                                        aria-labelledby="v-pills-performance-tab">
-                                        <form action="#" class="search-property-1">
-                                            <div class="row no-gutters">
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Número de Boleto</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Numero de boleto">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">email</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Correo">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group d-flex w-100 border-0">
-                                                        <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Cancelar"
-                                                                class="align-self-stretch form-control btn btn-primary p-0">
                                                         </div>
                                                     </div>
                                                 </div>

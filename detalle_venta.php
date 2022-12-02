@@ -2,6 +2,7 @@
 
 $id_ruta = $_POST['id'];
 $id_empresa = $_POST['fk_empresa'];
+$mail = $_POST['mail'];
 
 // SDK de Mercado Pago
 require __DIR__ .  '/vendor/autoload.php';
@@ -11,7 +12,8 @@ MercadoPago\SDK::setAccessToken('TEST-6099928014111868-050500-996855036f00e109b0
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 $preference->back_urls=array(
-  "success"=>"http://easyviajes.cl/venta-exitosa.php?id_ruta=$id_ruta&id_empresa=$id_empresa",
+  //"success"=>"http://easyviajes.cl/venta-exitosa.php?id_ruta=$id_ruta&id_empresa=$id_empresa&mail=$mail",
+  "success"=>"http://localhost:8080/venta-exitosa.php?id_ruta=$id_ruta&id_empresa=$id_empresa&mail=$mail",
 );
 
 // Crea un ítem en la preferencia
