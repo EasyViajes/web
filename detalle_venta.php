@@ -24,7 +24,7 @@ $preference->save();
 ?>
 
 
-
+<!--SDK MercadoPago.js V2-->
 <!DOCTYPE html>
 <html lang="en">
 
