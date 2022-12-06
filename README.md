@@ -3,7 +3,6 @@
 - [ ] Filtro de busquedas
 - [ ] Query SQL
 - [ ] Envio de mail de confirmacion
-- [ ] Implementar en Servidor
 
 ## SIMON
 
@@ -14,14 +13,14 @@
 
 ## FELIPE
 
-- [ ] Creacion de clientes
-- [ ] Confirmacion de venta
+- [x] Creacion de clientes
+- [x] Confirmacion de venta
+- [ ] Arreglar Creacion de Clientes
 - [ ] Anulacion de pasajes
 - [ ] Listado de pasajes comprados
-- [ ] Recuperacion de contrasenna
-- [ ] Cambio de estado.
-- [ ] Desplegar errores mas user friendly
-- [ ] Eliminar los die()
+- [x] Recuperacion de contrasenna
+- [ ] Cambio de estado al solicitar recuperar passwd.
+- [ ] Eliminar los die() para errores userfriendly
 - [ ] Mejorar el messageHandler();
 
 
