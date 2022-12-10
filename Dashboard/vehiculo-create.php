@@ -1,7 +1,7 @@
 <?php
-require "models/Vehiculo.php";
-require "models/Conductor.php";
-require "utils/message-handlers.php";
+require "../models/Vehiculo.php";
+require "../models/Conductor.php";
+require "../utils/message-handlers.php";
 
 
 session_start();
@@ -11,10 +11,10 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
-if ($_POST != Null) {
+if (!isset($_POST)) {
   $vehiculo = array(
     'patente'         => $_POST['patente'],
     'marca'           => $_POST['marca'],

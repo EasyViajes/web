@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']. '/utils/connection.php';
+require '..//utils/connection.php';
 $conn = create_connection();
 
 if (mysqli_connect_errno()) {

@@ -1,8 +1,8 @@
 <?php
-require "models/Ruta.php";
-require "models/Direccion.php";
-require "models/Vehiculo.php";
-require "utils/message-handlers.php";
+require "../models/Ruta.php";
+require "../models/Direccion.php";
+require "../models/Vehiculo.php";
+require "../utils/message-handlers.php";
 
 session_start();
 
@@ -11,10 +11,10 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
-if ($_POST != Null) {
+if (!isset($_POST)) {
       $ruta = array(
         'hora_salida'         => $_POST['hora_salida'],
         'precio'              => $_POST['precio'],

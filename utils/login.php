@@ -2,7 +2,7 @@
 function login($mail, $pwd)
 {
   #conection
-  require "$_SERVER[DOCUMENT_ROOT]/utils/connection.php";
+  require "utils/connection.php";
   $conn = create_connection();
 
   $query = "SELECT * FROM Usuario WHERE mail=?";
@@ -10,8 +10,7 @@ function login($mail, $pwd)
   if (!($stmt = mysqli_prepare($conn, $query))) {
     echo "Error while preparing statement.";
     echo "utils/login.php login()";
-    die();
-  }
+    die(); }
 
   mysqli_stmt_bind_param($stmt, "s", $mail);
   mysqli_stmt_execute($stmt);
@@ -24,25 +23,20 @@ function login($mail, $pwd)
   mysqli_close($conn);
 
   if (password_verify($pwd, $row['password'])){
-    session_start();
     $_SESSION["id"]         =  $row["id"];
     $_SESSION["nombre"]     =  $row["nombre"];
     $_SESSION["mail"]       =  $row["mail"];
+    $_SESSION["fecha_creacion"] =  $row["fecha_creacion"];
+
     $_SESSION["fk_estado"]  =  $row["fk_estado"];
     $_SESSION["fk_empresa"] =  $row["fk_empresa"];
-    $_SESSION["fecha_creacion"] =  $row["fecha_creacion"];
-    header("location: /index.php");
+    $_SESSION["fk_permiso"] =  $row["fk_permiso"];
+    header("location: /Dashboard/index.php");
   }
   else{
-    header("location: /login.php?msg=loginFailed");
+    header("location: /Dashboard/login.php?msg=loginFailed");
   }
 }
 
 function logout(){
-  if(isset($_SESSION)){
-    session_unset();
-    session_destroy();
-  }
-
-  header("location: /login.php?msg=sessionClosed");
 }

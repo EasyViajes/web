@@ -1,8 +1,6 @@
-1619
-
 <?php
-require "models/Ruta.php";
-require "utils/message-handlers.php";
+require "../models/Ruta.php";
+require "../utils/message-handlers.php";
 
 session_start();
 
@@ -11,12 +9,12 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
 $rutas = get_rutas($conn, $_SESSION['fk_empresa']);
 
-if ($_POST['id_ruta'] != Null) {
+if (isset($_POST['id_ruta'])) {
     if (delete_ruta($conn, $_POST['id_ruta'])){
       header("location: /Dashboard/ruta-list.php?msg=successDelete");
     }

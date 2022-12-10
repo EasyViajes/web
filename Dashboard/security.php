@@ -1,6 +1,6 @@
 <?php
-require "utils/message-handlers.php";
-require "models/Usuario.php";
+require "../utils/message-handlers.php";
+require "../models/Usuario.php";
 session_start();
 
 
@@ -11,10 +11,10 @@ if(!isset($_SESSION["id"])) {
 $id_empresa = $_SESSION['fk_empresa'];
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
-if ($_POST['update'] == 1) {
+if (isset($_POST['update']) && $_POST['update'] == 1) {
   password_hash($_POST['password'], PASSWORD_DEFAULT);
   $user = array(
     'id'        => $_SESSION['id'],

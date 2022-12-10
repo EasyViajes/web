@@ -1,5 +1,6 @@
 <?php
-require "utils/login.php";
+
+require '../utils/login.php';
 
 session_start();
 

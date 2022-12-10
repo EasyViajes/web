@@ -1,5 +1,5 @@
 <?php
-require "models/Venta.php";
+require "../models/Venta.php";
 
 session_start();
 
@@ -8,7 +8,7 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
 $ventas = get_ventas($conn, $_SESSION['fk_empresa']);

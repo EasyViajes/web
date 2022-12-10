@@ -1,9 +1,9 @@
 <?php
-require "models/Usuario.php";
-require "models/Empresa.php";
-require "models/Permiso.php";
-require "models/Estado.php";
-require "utils/message-handlers.php";
+require "../models/Usuario.php";
+require "../models/Empresa.php";
+require "../models/Permiso.php";
+require "../models/Estado.php";
+require "../utils/message-handlers.php";
 
 session_start();
 

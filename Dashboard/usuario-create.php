@@ -1,8 +1,8 @@
 <?php
-require "models/Usuario.php";
-require "models/Empresa.php";
-require "models/Permiso.php";
-require "utils/message-handlers.php";
+require "../models/Usuario.php";
+require "../models/Empresa.php";
+require "../models/Permiso.php";
+require "../utils/message-handlers.php";
 
 session_start();
 
@@ -11,10 +11,10 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
-if ($_POST != Null) {
+if (!isset($_POST)) {
 
   $pwd_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 

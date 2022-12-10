@@ -1,6 +1,6 @@
 <?php
-require "models/Conductor.php";
-require "utils/message-handlers.php";
+require "../models/Conductor.php";
+require "../utils/message-handlers.php";
 
 session_start();
 
@@ -9,12 +9,12 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
 $conductores = getConductores_all($conn, $_SESSION['fk_empresa']);
 
-if ($_POST['id_conductor'] != Null) {
+if (isset($_POST['id_conductor'])) {
     if (delete_conductor($conn, $_POST['id_conductor'])){
       header("location: /Dashboard/conductor-list.php?msg=successDelete");
     }

@@ -1,20 +1,20 @@
 <?php
-require "models/Empresa.php";
-require "utils/message-handlers.php";
+require "../models/Empresa.php";
+require "../utils/message-handlers.php";
 
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  header("location: /login.php");
+  header("location: /Dashboard/login.php");
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
 $empresas = get_empresas($conn);
 
-if ($_POST['id_empresa'] != Null) {
+if (isset($_POST['id_empresa'])) {
     if (delete_empresa($conn, $_POST['id_empresa'])){
       header("location: /Dashboard/empresa-list.php?msg=successDelete");
     }

@@ -1,7 +1,7 @@
 <?php
-require "models/Empresa.php";
-require "models/Estado.php";
-require "utils/message-handlers.php";
+require "../models/Empresa.php";
+require "../models/Estado.php";
+require "../utils/message-handlers.php";
 
 session_start();
 
@@ -10,7 +10,7 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
 

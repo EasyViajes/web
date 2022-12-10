@@ -1,6 +1,6 @@
 <?php
-require "models/Vehiculo.php";
-require "utils/message-handlers.php";
+require "../models/Vehiculo.php";
+require "../utils/message-handlers.php";
 
 session_start();
 
@@ -9,12 +9,12 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
 $vehiculos = get_vehiculos($conn, $_SESSION['fk_empresa']);
 
-if ($_POST['id_vehiculo'] != Null) {
+if (isset($_POST['id_vehiculo'])) {
     if (delete_vehiculo($conn, $_POST['id_vehiculo'])){
       header("location: /Dashboard/conductor-list.php?msg=successDelete");
     }

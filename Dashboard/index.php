@@ -8,22 +8,22 @@ if(!isset($_SESSION["id"])) {
 $id_empresa = $_SESSION['fk_empresa'];
 
 #conection
-require "utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
 # conductores
-include "models/Conductor.php";
+include "../models/Conductor.php";
 $conductores_activos = getConductores_count($conn, $id_empresa);
 
 # ventas
-include "models/Venta.php";
+include "../models/Venta.php";
 $ventas_dia = getVentas_dia($conn, $id_empresa);
 $ventas_semana = getVentas_dia($conn, $id_empresa);
 
 $ultimas_ventas = get_ventas($conn, $id_empresa);
 
 # Vehiculos
-include "models/Vehiculo.php";
+include "../models/Vehiculo.php";
 $ultimos_vehiculos = get_vehiculos($conn, $id_empresa);
 
 # data print methods

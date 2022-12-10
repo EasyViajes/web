@@ -1,6 +1,5 @@
 <?php
 function create_connection(){
-  $conf = include_once $_SERVER["DOCUMENT_ROOT"] . "/utils/config.php";
 
   $db_host      = '127.0.0.1';
   $db_username  = 'root';
