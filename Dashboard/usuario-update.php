@@ -20,20 +20,19 @@ $old_usuario = array(
   'id'              => $_POST['id'],
   'nombre'          => $_POST['nombre'],
   'mail'            => $_POST['mail'],
-  'password'        => $_POST['password'],
   'fecha_creacion'  => $_POST['fecha_creacion'],
   'fk_estado'       => $_POST['fk_estado'],
   'fk_empresa'      => $_POST['fk_empresa'],
   'fk_permiso'      => $_POST['fk_permiso'],
 );
 
-foreach ($old_conductor as $data){
+foreach ($old_usuario as $data){
   if($data == Null) {
-    header("location: /Dashboard/conductor-list.php?msg=old_isNull");
+    header("location: /Dashboard/usuario-list.php?msg=old_isNull");
   }
 }
 
-if ($_POST['update'] == 1) {
+if (isset($_POST['update']) && $_POST['update'] == 1) {
   $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
   $new_usuario = array(

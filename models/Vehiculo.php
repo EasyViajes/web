@@ -9,7 +9,6 @@ function create_vehiculo($conn, $vehiculo){
       exit();
     }
 
-    echo($vehiculo['mensualidad']);
     mysqli_stmt_bind_param($stmt, "ssiiii",
       $vehiculo['patente'],
       $vehiculo['marca'],
@@ -26,7 +25,7 @@ function create_vehiculo($conn, $vehiculo){
   catch(Exception $e) {
     echo "Exception in createConductor()\n";
     echo $e->getMessage();
-    die();
+    return false;
   }
 }
 

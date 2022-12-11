@@ -33,7 +33,7 @@ foreach ($old_conductor as $data){
   }
 }
 
-if ($_POST['update'] == 1) {
+if (isset($_POST['update']) && $_POST['update'] == 1) {
   $new_conductor = array(
     'rut'           => $_POST['new_rut'],
     'nombre'        => $_POST['new_nombre'],

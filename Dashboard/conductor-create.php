@@ -13,7 +13,7 @@ if(!isset($_SESSION['id'])) {
 require "../utils/connection.php";
 $conn = create_connection();
 
-if ($_POST != Null) {
+if (isset($_POST['rut'])) {
     $conductor = array(
       'rut'           => $_POST['rut'],
       'nombre'        => $_POST['nombre'],
@@ -26,7 +26,7 @@ if ($_POST != Null) {
     );
 
     if (create_conductor($conn, $conductor)){
-      header("location: /Dashboard/conductor-list.php?msg=successCreation");
+      header("location: /Dashboard/conductor-list.php");
     }
     else{
       header("location: /Dashboard/conductor-create.php?msg=failedCreation");

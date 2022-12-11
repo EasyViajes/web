@@ -4,6 +4,7 @@ require "../utils/message-handlers.php";
 
 session_start();
 
+
 if(!isset($_SESSION['id'])) {
   header("location: /Dashboard/login.php");
 }

@@ -3,7 +3,6 @@ require "../models/Vehiculo.php";
 require "../models/Conductor.php";
 require "../utils/message-handlers.php";
 
-
 session_start();
 
 if(!isset($_SESSION['id'])) {
@@ -14,15 +13,14 @@ if(!isset($_SESSION['id'])) {
 require "../utils/connection.php";
 $conn = create_connection();
 
-if (!isset($_POST)) {
+if (isset($_POST['patente'])) {
   $vehiculo = array(
     'patente'         => $_POST['patente'],
     'marca'           => $_POST['marca'],
     'asientos'        => $_POST['asientos'],
-    'fecha_vehiculo'  => $_POST['fecha_vehiculo'],
     'mensualidad'     => $_POST['mensualidad'],
-    'fk_estado'       => 1,
     'fk_empresa'      => $_SESSION['fk_empresa'],
+    'fk_estado'       => 1,
   );
 
   if (create_vehiculo($conn, $vehiculo)){

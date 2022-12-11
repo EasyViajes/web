@@ -14,7 +14,7 @@ if(!isset($_SESSION['id'])) {
 require "../utils/connection.php";
 $conn = create_connection();
 
-if (!isset($_POST)) {
+if (isset($_POST['precio'])) {
       $ruta = array(
         'hora_salida'         => $_POST['hora_salida'],
         'precio'              => $_POST['precio'],

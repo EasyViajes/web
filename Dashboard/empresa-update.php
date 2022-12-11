@@ -22,9 +22,9 @@ $old_empresa = array(
   'fk_estado'       => $_POST['fk_estado']
 );
 
-foreach ($old_conductor as $data){
+foreach ($old_empresa as $data){
   if($data == Null) {
-    header("location: /Dashboard/conductor-list.php?msg=old_isNull");
+    header("location: /Dashboard/empresa-list.php?msg=old_isNull");
   }
 }
 

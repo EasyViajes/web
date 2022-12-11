@@ -1,8 +1,8 @@
 <?php
-require "models/Vehiculo.php";
-require "models/Conductor.php";
-require "models/Estado.php";
-require "utils/message-handlers.php";
+require "../models/Vehiculo.php";
+require "../models/Conductor.php";
+require "../models/Estado.php";
+require "../utils/message-handlers.php";
 
 session_start();
 
@@ -11,7 +11,7 @@ if(!isset($_SESSION['id'])) {
 }
 
 #conection
-require "$_SERVER[DOCUMENT_ROOT]/utils/connection.php";
+require "../utils/connection.php";
 $conn = create_connection();
 
 $old_vehiculo = array(

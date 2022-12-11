@@ -31,11 +31,10 @@ foreach ($old_ruta as $data){
   }
 }
 
-if ($_POST['update'] == 1) {
+if (isset($_POST['update']) && $_POST['update'] == 1) {
   $new_ruta = array(
     'hora_salida'         => $_POST['new_hora_salida'],
     'precio'              => $_POST['new_precio'],
-    'fecha_creacion'      => $_POST['new_fecha_creacion'],
     'direccion_origen'    => $_POST['new_direccion_origen'],
     'direccion_destino'   => $_POST['new_direccion_destino'],
     'fk_estado'           => $_POST['new_fk_estado'],
@@ -44,7 +43,7 @@ if ($_POST['update'] == 1) {
   );
 
   if(update_ruta($conn, $old_ruta, $new_ruta)){
-    header("location: /Dashboard/ruta-list.php?msg=successUpdate");
+    header("location: /Dashboard/ruta-list.php");
   }
 
   else{
