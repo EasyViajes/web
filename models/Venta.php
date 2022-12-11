@@ -1,16 +1,19 @@
 <?php
 
-function create_venta($conn, $venta){ try { $sql = "INSERT INTO Venta (fecha_compra, fk_estado, fk_ruta, fk_empresa) VALUES (?, ?, ?, ?)";
+function create_venta($conn, $venta){
+  try {
+    $sql = "INSERT INTO Venta (fecha_compra, fk_cliente, fk_estado, fk_ruta, fk_empresa) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /Dashboard/conductor-create.php?err=failedPrepStmt"); exit();
+      header("location: /Dashboard/venta-create.php?err=failedPrepStmt"); exit();
     }
-    mysqli_stmt_bind_param($stmt, "siii",
-      $conductor['fecha_compra'],
-      $conductor['fk_estado'],
-      $conductor['fk_ruta'],
-      $conductor['fk_empresa'],
+    mysqli_stmt_bind_param($stmt, "siiii",
+      $venta['fecha_compra'],
+      $venta['fk_cliente'],
+      $venta['fk_estado'],
+      $venta['fk_ruta'],
+      $venta['fk_empresa'],
     );
 
     $result = mysqli_stmt_execute($stmt);
@@ -48,6 +51,16 @@ function get_all_ventas($conn){
   return $rows;
 }
 
+function get_ventas_cliente($conn, $id_cliente){
+  $query="SELECT * FROM Venta WHERE fk_cliente = $id_cliente";
+  $result = mysqli_query($conn, $query);
+
+  $rows = array();
+  while ($row = mysqli_fetch_assoc($result)){
+    $rows[] = $row;
+  }
+  return $rows;
+}
 
 function getVentas_dia($conn, $id_empresa){
   $query = "SELECT COUNT(*) FROM Venta WHERE CAST(fecha_compra as Date) = CAST(CURDATE() as Date) AND fk_empresa = $id_empresa";

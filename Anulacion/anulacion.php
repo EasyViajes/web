@@ -12,7 +12,7 @@ $conn = create_connection();
 
 #ventas
 include "../models/Venta.php";
-$ventas_user = get_ventas($conn, $_SESSION['id_cliente']);
+$ventas = get_ventas_cliente($conn, $_SESSION['id_cliente']);
 ?>
 
 
@@ -25,7 +25,7 @@ $ventas_user = get_ventas($conn, $_SESSION['id_cliente']);
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
       name="viewport"
     />
-    <title>Anulacion de pasajes | Pullman Tur</title>
+    <title>Anulacion de pasajes</title>
 
 
     <!--Font Awesome-->
@@ -48,7 +48,7 @@ $ventas_user = get_ventas($conn, $_SESSION['id_cliente']);
       class="container col-md-12 p-5 "
       style="background-color: white; border-radius: 12px"
     >
-      <h1 class="fs-4 pt-3">Anulacion de compra N° <?=$idpagoptur?> </h1>
+      <h1 class="fs-4 pt-3">Bienvenido</h1>
       <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/Anulacion/logout.php">Volver</a></li>
@@ -75,39 +75,36 @@ $ventas_user = get_ventas($conn, $_SESSION['id_cliente']);
       
         <div class="container table-responsive">
           <table class="table table-striped align-content-center">
+
+<?php
+if(count($ventas) == 0){
+  echo "<h1>No hay pasajes</h1>";
+}else {
+?>
             <thead>
               <tr>
-                <th scope="col">Acción</th>
-                <th scope="col">N Pasaje</th>
-                <th scope="col">Asiento</th>
-                <th scope="col">Tramo</th>
-                <th scope="col">Salida</th>
-                <th scope="col">Tipo Asiento</th>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha de Compra</th>
+                <th scope="col">Ruta</th>
                 <th scope="col">Estado</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-<?php
-if(count($ventas_user) != 0){
-  echo "<h1>No hay pasajes</h1>";
-}
 
-foreach($ventas as $venta){
-  echo "<td>", $venta['id'], "</td>";
-  echo "<td>", $venta['fecha_compra'], "</td>";
-  echo "<td>", $venta['fk_estado'], "</td>";
-  echo "<td>", $venta['fk_ruta'], "</td>";
-  echo "<td>fecha</td>";
-  echo "<td>Estado</td>";
-  echo "<td>ruta</td>";
+<?php
+  foreach($ventas as $venta){
+    echo "<td>", $venta['id'], "</td>";
+    echo "<td>", $venta['fecha_compra'], "</td>";
+    echo "<td>", $venta['fk_ruta'], "</td>";
+    echo "<td>", $venta['fk_estado'], "</td>";
+  }
 }
-              ?>
+?>
               </tr>
             </tbody>
           </table>
         </div>
-    </div>
 
     <!--js-->
     <script src="js/funciones.js"></script>

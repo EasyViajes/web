@@ -20,15 +20,9 @@ function print_ventas($data){
     echo "  <td>", $venta['id'],"</td>";
     echo "  <td>", $venta['fecha_compra'],"</td>";
     echo "  <td>", $venta['fk_estado'],"</td>";
-    echo "  <td>", $venta['fk_pasaje'],"</td>";
+    echo "  <td>", $venta['fk_ruta'],"</td>";
     echo "  <td>", $venta['fk_empresa'],"</td>";
     echo "  <td>", $venta['fk_cliente'],"</td>";
-    echo "  <td class='text-center'>";
-    echo "    <button type='button' class='btn btn-success btn-modal text-center'";
-    echo "      data-bs-toggle='modal' data-bs-target='#staticBackdrop'>'";
-    echo "      <i class='fa-regular fa-pen-to-square'></i>'";
-    echo "    </button>";
-    echo "  </td>";
     echo "</tr>";
   }
 }
@@ -113,7 +107,6 @@ function print_ventas($data){
                                             <th data-priority="4">Ruta</th>
                                             <th>Estado</th>
                                             <th>Cliente</th>
-                                            <th>Conductor</th>
                                         </tr>
                                     </thead>
                                     <tbody>

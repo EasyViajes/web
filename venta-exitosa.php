@@ -1,27 +1,29 @@
 <?php
 #conection
-require "utils/connection.php";
+require "./utils/connection.php";
 $conn = create_connection();
 
 # venta
-require "models/Venta.php";
-
+require "./models/Venta.php";
 # cliente
-require "models/Cliente.php";
+require "./models/Cliente.php";
 
 # check if mail exists
-$user_id = get_cliente_by_mail($conn, $_GET['mail']);
+$cliente = get_cliente_by_mail($conn, $_GET['mail']);
 
-var_dump($user_id);
-die();
+if(!isset($cliente['id'])){
+  $cliente = array(
+    'mail'          => $_GET['mail'],
+    'secret'       => generate_secret(),
+    'fecha_creacion'=> date('Y-m-d'),
+  );
 
-if(!$user_id){
-  $user_id = create_cliente($conn, $_GET['mail']);
+  $cliente = create_cliente($conn, $cliente);
 }
 
 $venta = array(
-  'fecha_compra'  => date('Y-m-d h:i:a'),
-  'fk_cliente'    => $user_id,
+  'fecha_compra'  => date('Y-m-d h:i'),
+  'fk_cliente'    => $cliente,
   'fk_estado'     => 1,
   'fk_ruta'       => $_GET['id_ruta'],
   'fk_empresa'    => $_GET['id_empresa'],
