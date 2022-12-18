@@ -12,7 +12,7 @@ if(!isset($_SESSION['id'])) {
 require "../utils/connection.php";
 $conn = create_connection();
 
-if ($_POST != Null) {
+if (isset($_POST)) {
   $empresa = array(
     'rut'             => $_POST['rut'],
     'nombre'          => $_POST['nombre'],
