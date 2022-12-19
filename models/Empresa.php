@@ -67,7 +67,6 @@ function update_empresa($conn, $old_empresa, $new_empresa){
   catch(Exception $e) {
     echo "Exception in update_empresa()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -81,6 +80,5 @@ function delete_empresa($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }

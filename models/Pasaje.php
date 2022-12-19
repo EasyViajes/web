@@ -22,7 +22,6 @@ function createPasaje($conn, $pasaje){
   catch(Exception $e) {
     echo "Exception in createPasaje()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -48,6 +47,5 @@ function delete_pasaje($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }

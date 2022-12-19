@@ -27,7 +27,6 @@ function create_ruta($conn, $ruta){
   catch(Exception $e) {
     echo "Exception in createRuta()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -98,7 +97,6 @@ function update_ruta($conn, $old_ruta, $new_ruta){
   catch(Exception $e) {
     echo "Exception in update_ruta()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -111,6 +109,5 @@ function delete_ruta($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }

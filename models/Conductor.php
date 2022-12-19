@@ -50,7 +50,6 @@ function getConductores_count($conn, $id_empresa){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -84,7 +83,6 @@ function update_conductor($conn, $old_conductor, $new_conductor){
   catch(Exception $e) {
     echo "Exception in update_conductor()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -97,6 +95,5 @@ function delete_conductor($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }

@@ -70,7 +70,6 @@ function update_vehiculo($conn, $old_vehiculo, $new_vehiculo){
   catch(Exception $e) {
     echo "Exception in update_vehiculo()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -83,7 +82,6 @@ function delete_vehiculo($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -98,7 +96,6 @@ function get_ultimos_vehiculos($conn, $id_vehiculo){
   }
   catch(Exception $e){
     echo $e->getMessage();
-    die();
   }
 
 }

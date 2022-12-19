@@ -38,7 +38,6 @@ function create_cliente($conn, $cliente){
   catch(Exception $e) {
     echo "Exception in create_cliente()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -69,7 +68,6 @@ function update_cliente($conn, $old_cliente, $new_cliente){
   catch(Exception $e) {
     echo "Exception in update_cliente()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -82,7 +80,6 @@ function delete_cliente($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }
 

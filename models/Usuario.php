@@ -26,7 +26,6 @@ function create_usuario($conn, $usuario){
   catch(Exception $e) {
     echo "Exception in create_usuario()\n";
     echo $e->getMessage();
-    die();
   }
 
 }
@@ -58,7 +57,6 @@ function update_usuario($conn, $old_usuario, $new_usuario){
   catch(Exception $e) {
     echo "Exception in update_usuario()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -87,7 +85,6 @@ function update_usuario_security($conn, $usuario){
   catch(Exception $e) {
     echo "Exception in update_usuario()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -128,6 +125,5 @@ function delete_usuario($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }

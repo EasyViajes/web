@@ -24,7 +24,6 @@ function create_direccion($conn, $direccion){
   catch(Exception $e) {
     echo "Exception in createDireccion()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -37,6 +36,5 @@ function delete_direccion($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }

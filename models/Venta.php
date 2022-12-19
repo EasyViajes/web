@@ -6,7 +6,8 @@ function create_venta($conn, $venta){
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: /Dashboard/venta-create.php?err=failedPrepStmt"); exit();
+      header("location: /Dashboard/venta-create.php?err=failedPrepStmt");
+      exit();
     }
     mysqli_stmt_bind_param($stmt, "siiii",
       $venta['fecha_compra'],
@@ -73,7 +74,6 @@ function getVentas_dia($conn, $id_empresa){
   }
   catch(Exception $e){
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -88,7 +88,6 @@ function getVentas_semana($conn, $id_empresa){
   }
   catch(Exception $e){
     echo $e->getMessage();
-    die();
   }
 
 }
@@ -108,7 +107,6 @@ function get_ultimas_ventas($conn, $id_empresa){
   }
   catch(Exception $e){
     echo $e->getMessage();
-    die();
   }
 
 }
@@ -138,7 +136,6 @@ function update_venta($conn, $old_venta, $new_venta){
   catch(Exception $e) {
     echo "Exception in update_venta()\n";
     echo $e->getMessage();
-    die();
   }
 }
 
@@ -151,7 +148,6 @@ function delete_venta($conn, $id){
 
   }catch (Exception $e) {
     echo $e->getMessage();
-    die();
   }
 }
 
