@@ -14,7 +14,7 @@ if(!isset($_SESSION['id'])) {
 require "../utils/connection.php";
 $conn = create_connection();
 
-if (isset($_POST)) {
+if (isset($_POST['nombre'])) {
   $pwd_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
   $usuario = array(
