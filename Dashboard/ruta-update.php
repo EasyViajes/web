@@ -16,6 +16,7 @@ $conn = create_connection();
 $old_ruta = array(
   'id'                => $_POST['id'],
   'hora_salida'       => $_POST['hora_salida'],
+  'dia'               => $_POST['dia'],
   'precio'            => $_POST['precio'],
   'fecha_creacion'    => $_POST['fecha_creacion'],
   'direccion_origen'  => $_POST['direccion_origen'],
@@ -34,6 +35,7 @@ foreach ($old_ruta as $data){
 if (isset($_POST['update']) && $_POST['update'] == 1) {
   $new_ruta = array(
     'hora_salida'         => $_POST['new_hora_salida'],
+    'dia'                 => $_POST['new_dia'],
     'precio'              => $_POST['new_precio'],
     'direccion_origen'    => $_POST['new_direccion_origen'],
     'direccion_destino'   => $_POST['new_direccion_destino'],
@@ -139,6 +141,7 @@ function print_estados($data) {
                                 <?php
                                   echo "<input type='hidden' id='id' name='id' value='", $old_ruta['id'],"'/>";
                                   echo "<input type='hidden' id='hora_salida' name='hora_salida' value='", $old_ruta['hora_salida'],"'/>";
+                                  echo "<input type='hidden' id='dia' name='dia' value='", $old_ruta['dia'],"'/>";
                                   echo "<input type='hidden' id='precio' name='precio' value='", $old_ruta['precio'],"'/>";
                                   echo "<input type='hidden' id='fecha_creacion' name='fecha_creacion' value='", $old_ruta['fecha_creacion'],"'/>";
                                   echo "<input type='hidden' id='direccion_origen' name='direccion_origen' value='", $old_ruta['direccion_origen'],"'/>";
@@ -158,6 +161,24 @@ function print_estados($data) {
                                             <small class="help-block form-text">Ingresar Precio</small>
                                         </div>
                                     </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label type="text" class=" form-control-label">Dia de la semana</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="new_dia" id="new_dia" class="form-control" required>
+                                                <option value="Lunes">Lunes</option>
+                                                <option value="Martes">Martes</option>
+                                                <option value="Miercoles">Miercoles</option>
+                                                <option value="Jueves">Jueves</option>
+                                                <option value="Viernes">Viernes</option>
+                                                <option value="Sabado">Sabado</option>
+                                                <option value="Domingo">Domingo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">Hora de Salida</label>
@@ -198,7 +219,6 @@ function print_estados($data) {
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <select name="new_fk_estado" id="select-empresa" class="form-control">
-                                                <option value="0">---</option>
                                                 <?php print_estados($estados);?>
                                             </select>
                                             <small class="help-block form-text">Seleccione un Estado</small>

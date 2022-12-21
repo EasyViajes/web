@@ -17,6 +17,7 @@ $conn = create_connection();
 if (isset($_POST['precio'])) {
       $ruta = array(
         'hora_salida'         => $_POST['hora_salida'],
+        'dia'                 => $_POST['dia'],
         'precio'              => $_POST['precio'],
         'fecha_creacion'      => date('Y-m-d'),
         'direccion_origen'    => $_POST['origen'],
@@ -121,6 +122,25 @@ function print_vehiculos($data) {
                                             <small class="help-block form-text">Ingresar Precio</small>
                                         </div>
                                     </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label type="text" class=" form-control-label">Dia de la semana</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="dia" id="dia" class="form-control" required>
+                                                <option value="0">Seleccione un dia</option>
+                                                <option value="Lunes">Lunes</option>
+                                                <option value="Martes">Martes</option>
+                                                <option value="Miercoles">Miercoles</option>
+                                                <option value="Jueves">Jueves</option>
+                                                <option value="Viernes">Viernes</option>
+                                                <option value="Sabado">Sabado</option>
+                                                <option value="Domingo">Domingo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">Hora de Salida</label>

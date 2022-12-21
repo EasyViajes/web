@@ -14,11 +14,12 @@ function print_rutas($data){
     echo "  <td>", $ruta['fk_empresa'], "</td>";
     echo "  <td>", $ruta['direccion_origen'], "</td>";
     echo "  <td>", $ruta['direccion_destino'], "</td>";
-    echo "  <td>", $ruta['hora_salida'], "</td>";
+    echo "  <td>", $ruta['dia'], ' ', $ruta['hora_salida'], "</td>";
     echo "  <td>", $ruta['precio'], "</td>";
     echo "  <td>";
     echo "    <form action='compra.php' method='POST'>";
     echo "      <input type='hidden' id='id' name='id' value='", $ruta['id'],"'/>";
+    echo "      <input type='hidden' id='dia' name='dia' value='", $ruta['dia'],"'/>";
     echo "      <input type='hidden' id='dir' name='direccion_origen' value='", $ruta['direccion_origen'],"'/>";
     echo "      <input type='hidden' id='dir' name='direccion_destino' value='", $ruta['direccion_destino'],"'/>";
     echo "      <input type='hidden' id='hr' name='hora_salida' value='", $ruta['hora_salida'],"'/>";

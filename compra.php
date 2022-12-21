@@ -62,7 +62,7 @@ require "$_SERVER[DOCUMENT_ROOT]/models/Ruta.php";
                             <span class="fa fa-clock-o"></span>
                         </div>
                         <h3 class="mb-2">Hora</h3>
-                        <p><?php echo $_POST['hora_salida']?></p>
+                        <p><?php echo $_POST['dia'], ' ', $_POST['hora_salida']?></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -103,11 +103,6 @@ require "$_SERVER[DOCUMENT_ROOT]/models/Ruta.php";
 
                         <div class="form-group">
                             <input placeholder="Correo" id="inp_email" name="mail" type="email" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input placeholder="Celular" id="inp_celular" name="celular"  type="number" class="form-control"  min="1" required>
-
                         </div>
 
                         <div class="form-group">

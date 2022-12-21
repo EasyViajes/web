@@ -2,15 +2,16 @@
 
 function create_ruta($conn, $ruta){
   try {
-    $sql = "INSERT INTO Ruta (hora_salida, precio, fecha_creacion, direccion_origen, direccion_destino, fk_estado, fk_empresa, fk_vehiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO Ruta (hora_salida, dia, precio, fecha_creacion, direccion_origen, direccion_destino, fk_estado, fk_empresa, fk_vehiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       header("location: /Dashboard/ruta-create.php?err=failedPrepStmt");
       exit();
     }
-    mysqli_stmt_bind_param($stmt, "sisssiii",
+    mysqli_stmt_bind_param($stmt, "ssisssiii",
       $ruta['hora_salida'],
+      $ruta['dia'],
       $ruta['precio'],
       $ruta['fecha_creacion'],
       $ruta['direccion_origen'],
@@ -71,7 +72,7 @@ function get_all_rutas($conn){
 
 function update_ruta($conn, $old_ruta, $new_ruta){
   try {
-    $sql = "UPDATE Ruta SET hora_salida=?, precio=?, direccion_origen=?, direccion_destino=?, fk_estado=?, fk_vehiculo=? WHERE id=?";
+    $sql = "UPDATE Ruta SET hora_salida=?, dia=?, precio=?, direccion_origen=?, direccion_destino=?, fk_estado=?, fk_vehiculo=? WHERE id=?";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -79,8 +80,9 @@ function update_ruta($conn, $old_ruta, $new_ruta){
       exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "sissiii",
+    mysqli_stmt_bind_param($stmt, "ssissiii",
       $new_ruta['hora_salida'],
+      $new_ruta['dia'],
       $new_ruta['precio'],
       $new_ruta['direccion_origen'],
       $new_ruta['direccion_destino'],

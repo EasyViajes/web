@@ -28,7 +28,7 @@ function print_rutas($data){
     echo "<tr>";
     echo "  <td></td>";
     echo "  <td>", $ruta['id'], "</td>";
-    echo "  <td>", $ruta['hora_salida'], "</td>";
+    echo "  <td>", $ruta['dia'], ' ', $ruta['hora_salida'], "</td>";
     echo "  <td>", $ruta['precio'], "</td>";
     echo "  <td>", $ruta['direccion_origen'], " - ", $ruta['direccion_destino'], "</td>";
     echo "  <td>", $ruta['fk_vehiculo'], "</td>";
@@ -41,6 +41,7 @@ function print_rutas($data){
     echo "    <form action='/Dashboard/ruta-update.php' method='POST'>";
     echo "      <input type='hidden' id='id' name='id' value='", $ruta['id'],"'/>";
     echo "      <input type='hidden' id='hora_salida' name='hora_salida' value='", $ruta['hora_salida'],"'/>";
+    echo "      <input type='hidden' id='dia' name='dia' value='", $ruta['dia'],"'/>";
     echo "      <input type='hidden' id='precio' name='precio' value='", $ruta['precio'],"'/>";
     echo "      <input type='hidden' id='fecha_creacion' name='fecha_creacion' value='", $ruta['fecha_creacion'],"'/>";
     echo "      <input type='hidden' id='direccion_origen' name='direccion_origen' value='", $ruta['direccion_origen'],"'/>";
@@ -143,7 +144,7 @@ function print_rutas($data){
                                         <tr>
                                             <th data-priority="1">Más</th>
                                             <th>#</th>
-                                            <th data-priority="2">Hora Salida</th>
+                                            <th data-priority="2">Salida</th>
                                             <th>Precio</th>
                                             <th>Ruta</th>
                                             <th data-priority="3">Vehículo</th>
