@@ -124,7 +124,7 @@
                                                         <label for="#">Día</label>
                                                         <div class="form-field">
                                                             <select name="dia" id="dia" class="form-control" required>
-                                                                <option value="0">Seleccione un dia</option>
+                                                                <option value="0">Seleccione dia</option>
                                                                 <option value="Lunes">Lunes</option>
                                                                 <option value="Martes">Martes</option>
                                                                 <option value="Miercoles">Miercoles</option>
