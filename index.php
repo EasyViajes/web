@@ -55,17 +55,13 @@
                                     <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill"
                                         href="#v-pills-1" role="tab" aria-controls="v-pills-1"
                                         aria-selected="true">Comprar Boletos</a>
-
                                     <a class="nav-link" id="v-pills-2-tab" href="/Anulacion/" role="tab"
                                         aria-controls="v-pills-2" aria-selected="false">Anulación de
                                         Boletos</a>
-
                                 </div>
                             </div>
                             <div class="col-md-12 tab-wrap">
-
                                 <div class="tab-content" id="v-pills-tabContent">
-
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                         aria-labelledby="v-pills-nextgen-tab">
                                         <form action="/pasaje-lista.php" class="search-property-1">
@@ -75,31 +71,54 @@
                                                         <label for="#">Origen</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control" name="example"
-                                                                list="exampleList" placeholder="Ingresar Origen"
-                                                                required>
-                                                            <datalist id="exampleList">
-                                                                <option value="A">
-                                                                <option value="B">
-                                                            </datalist>
+                                                            <div class="form-field">
+                                                                <select name="region-origen" id="regiones" class="form-control"
+                                                                    required>
+                                                                    <option value="0">---</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4 border-0">
+                                                        <br>
                                                         <label for="#">Destino</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control" name="example"
-                                                                list="exampleList" placeholder="Ingresar Destino"
-                                                                required>
-                                                            <datalist id="exampleList">
-                                                                <option value="A">
-                                                                <option value="B">
-                                                            </datalist>
+                                                            <div class="form-field">
+                                                                <select name="region-destino" id="regiones2" class="form-control"
+                                                                    required>
+                                                                    <option value="0">---</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
+                                                <div class="col-md d-flex">
+                                                    <div class="form-group p-4 border-0">
+                                                        <label for="#">&nbsp</label>
+                                                        <div class="form-field">
+                                                            <div class="icon"><span class="fa fa-search"></span></div>
+                                                            <div class="form-field">
+                                                                <select name="comuna-origen" id="comunas" class="form-control"
+                                                                    required>
+                                                                    <option value='0'>---</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <label for="#">&nbsp</label>
+                                                        <div class="form-field">
+                                                            <div class="icon"><span class="fa fa-search"></span></div>
+                                                            <div class="form-field">
+                                                                <select name="comuna-destino" id="comunas2" class="form-control"
+                                                                    required>
+                                                                    <option value='0'>---</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
                                                         <label for="#">Día</label>
@@ -326,6 +345,7 @@
     }
     </script>
     <script src="js/google-map.js"></script>
+    <script src="js/funciones.js"></script>
     <script src="js/main.js"></script>
 
 </body>
