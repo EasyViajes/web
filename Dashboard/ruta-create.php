@@ -152,23 +152,53 @@ function print_vehiculos($data) {
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label type="text" class=" form-control-label">Origen</label>
+                                            <label for="select" class=" form-control-label">Origen</label>
                                         </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="origen" name="origen" placeholder="Ingrese Origen"
+                                        <div class="col-4 col-md-3">
+                                            <select name="region-origen" id="regiones" class="form-control" required>
+                                                <option value="0">---</option>
+                                               
+                                            </select>
+                                            <small class="help-block form-text">Seleccione una región</small>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <select name="comuna-origen" id="comunas" class="form-control" required>
+                                                <option value='0'>---</option>
+                                               
+                                            </select>
+                                            <small class="help-block form-text">Seleccione una comuna</small>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <input type="text" id="calle" name="direccion-origen" placeholder="Ingrese Calle"
                                                 class="form-control" required>
-                                            <small class="help-block form-text">Ingresar origen</small>
+                                            <small class="help-block form-text">Ingrese Calle</small>
                                         </div>
+                                        
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="name-input" class=" form-control-label">Destino</label>
+                                            <label for="select" class=" form-control-label">Destino</label>
                                         </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="destino" name="destino" placeholder="Ingrese Destino"
+                                        <div class="col-4 col-md-3">
+                                            <select name="region-destino" id="regiones2" class="form-control" required>
+                                                <option value="0">---</option>
+                                               
+                                            </select>
+                                            <small class="help-block form-text">Seleccione una región</small>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <select name="comuna-destino" id="comunas2" class="form-control" required>
+                                                <option value='0'>---</option>
+                                               
+                                            </select>
+                                            <small class="help-block form-text">Seleccione una comuna</small>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <input type="text" id="calle2" name="direccion-destino" placeholder="Ingrese Calle"
                                                 class="form-control" required>
-                                            <small class="help-block form-text">Ingresar destino</small>
+                                            <small class="help-block form-text">Ingrese Calle</small>
                                         </div>
+                                        
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
@@ -222,6 +252,7 @@ function print_vehiculos($data) {
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script src="js/funciones.js"></script>
 
 </body>
 

@@ -56,8 +56,8 @@
                                         href="#v-pills-1" role="tab" aria-controls="v-pills-1"
                                         aria-selected="true">Comprar Boletos</a>
 
-                                    <a class="nav-link" id="v-pills-2-tab" href="/Anulacion/"
-                                        role="tab" aria-controls="v-pills-2" aria-selected="false">Anulación de
+                                    <a class="nav-link" id="v-pills-2-tab" href="/Anulacion/" role="tab"
+                                        aria-controls="v-pills-2" aria-selected="false">Anulación de
                                         Boletos</a>
 
                                 </div>
@@ -102,11 +102,18 @@
                                                 </div>
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
-                                                        <label for="#">Fecha</label>
+                                                        <label for="#">Día</label>
                                                         <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                            <input  id="date-picker" type="date" autocomplete="off" class="form-control"
-                                                                placeholder="Fecha" required>
+                                                            <select name="dia" id="dia" class="form-control" required>
+                                                                <option value="0">Seleccione un dia</option>
+                                                                <option value="Lunes">Lunes</option>
+                                                                <option value="Martes">Martes</option>
+                                                                <option value="Miercoles">Miercoles</option>
+                                                                <option value="Jueves">Jueves</option>
+                                                                <option value="Viernes">Viernes</option>
+                                                                <option value="Sabado">Sabado</option>
+                                                                <option value="Domingo">Domingo</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>

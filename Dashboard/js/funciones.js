@@ -705,5 +705,44 @@ jQuery(document).ready(function () {
 			alert("selecciones Región");
 		}
 	});
+
+	jQuery("#regiones2").html(htmlRegion);
+	jQuery("#comunas2").html(htmlComunas);
+
+	jQuery("#regiones2").change(function () {
+		var iRegiones = 0;
+		var valorRegion = jQuery(this).val();
+		var htmlComuna =
+			'<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
+		jQuery.each(RegionesYcomunas.regiones, function () {
+			if (RegionesYcomunas.regiones[iRegiones].NombreRegion == valorRegion) {
+				var iComunas = 0;
+				jQuery.each(RegionesYcomunas.regiones[iRegiones].comunas, function () {
+					htmlComuna =
+						htmlComuna +
+						'<option value="' +
+						RegionesYcomunas.regiones[iRegiones].comunas[iComunas] +
+						'">' +
+						RegionesYcomunas.regiones[iRegiones].comunas[iComunas] +
+						"</option>";
+					iComunas++;
+				});
+			}
+			iRegiones++;
+		});
+		jQuery("#comunas2").html(htmlComuna);
+	});
+	jQuery("#comunas2").change(function () {
+		if (jQuery(this).val() == "sin-region") {
+			alert("selecciones Región");
+		} else if (jQuery(this).val() == "sin-comuna") {
+			alert("selecciones Comuna");
+		}
+	});
+	jQuery("#regiones2").change(function () {
+		if (jQuery(this).val() == "sin-region") {
+			alert("selecciones Región");
+		}
+	});
 });
 

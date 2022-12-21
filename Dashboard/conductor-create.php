@@ -14,12 +14,10 @@ require "../utils/connection.php";
 $conn = create_connection();
 
 if (isset($_POST['rut'])) {
-  $direccion = $_POST['region']. ' '. $_POST['comuna']. ' '. $_POST['direccion'];
-
     $conductor = array(
       'rut'           => $_POST['rut'],
       'nombre'        => $_POST['nombre'],
-      'direccion'     => $direccion,
+      'direccion'     => $_POST['direccion'],
       'fecha_ingreso' => $_POST['fecha_ingreso'],
       'fin_contrato'  => $_POST['fin_contrato'],
       'fk_estado'     => 1,
@@ -137,14 +135,14 @@ function print_vehiculos($data) {
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="select" class=" form-control-label">Direcciòn</label>
+                                            <label for="select" class=" form-control-label">Dirección</label>
                                         </div>
                                         <div class="col-4 col-md-3">
                                             <select name="region" id="regiones" class="form-control" required>
                                                 <option value="0">---</option>
                                                
                                             </select>
-                                            <small class="help-block form-text">Seleccione una region</small>
+                                            <small class="help-block form-text">Seleccione una región</small>
                                         </div>
                                         <div class="col-4 col-md-3">
                                             <select name="comuna" id="comunas" class="form-control" required>
