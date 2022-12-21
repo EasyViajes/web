@@ -32,6 +32,18 @@ $venta = array(
 );
 
 if (create_venta($conn, $venta)){
+	echo "<h1>Compra exitosa.</h1>";
+	echo "Por favor guarde su codigo secreto.";
+	echo "<br>";
+	echo "<br>";
+	echo "Email: ". $cliente['mail'];
+	echo "<br>";
+	echo "Secreto: ". $cliente['secret'];
+	echo "<br>";
+	echo "<br>";
+  	echo "<a href='/index.php?msg=sucessCreation'> Volver... </a>";
+	echo "<br>";
+	die();
   header("location: /index.php?msg=sucessCreation");
 }
 else{

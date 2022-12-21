@@ -82,7 +82,8 @@ require "$_SERVER[DOCUMENT_ROOT]/models/Ruta.php";
         <div class="container">
             <div class="row block-9">
                 <div class="col-md-6 order-md-last d-flex">
-                    <form method="post" action="detalle_venta.php" class="bg-light p-5 contact-form">
++                    <form method="post" action="http://localhost:8080/detalle_venta.php" class="bg-light p-5 contact-form">
+
                     <?php
                       echo "<input type='hidden' id='id' name='id' value='", $_POST['id'],"'/>";
                       echo "<input type='hidden' id='id' name='direccion_origen' value='", $_POST['direccion_origen'],"'/>";
