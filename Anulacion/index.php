@@ -68,17 +68,17 @@ if (isset($_POST['mail']) || isset($_POST['secreto'])) {
 
       <form method="POST" id="form" action="/Anulacion/index.php">
         <div class="txt_field">
-          <input type="text" id="email" name="mail" onkeydown="validacionCorreo()" autocomplete="nope" required />
+          <input type="text" id="email" name="mail" autocomplete="nope" required />
           <span></span>
           <label>Correo</label>
         </div>
         <div class="txt_field">
-          <input type="number" name="secreto" id="idpagotur" onkeydown="validacionnumeros()" autocomplete="nope" required />
+          <input type="number" name="secreto" id="idpagotur" autocomplete="nope" required />
           <span></span>
           <label>Codigo Secreto</label>
         </div>
 
-        <input type="submit" name="ingresar" value="ingresar" id="button1" class="btn btn-primary" disabled />
+        <input type="submit" name="ingresar" value="ingresar" id="button1" class="btn btn-primary" />
         <br />
         <br />
         <span id="text"></span>

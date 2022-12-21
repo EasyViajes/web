@@ -94,10 +94,12 @@ if(count($ventas) == 0){
 
 <?php
   foreach($ventas as $venta){
+	  echo "<tr>";
     echo "<td>", $venta['id'], "</td>";
     echo "<td>", $venta['fecha_compra'], "</td>";
     echo "<td>", $venta['fk_ruta'], "</td>";
     echo "<td>", $venta['fk_estado'], "</td>";
+	  echo "</tr>";
   }
 }
 ?>
