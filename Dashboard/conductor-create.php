@@ -14,10 +14,12 @@ require "../utils/connection.php";
 $conn = create_connection();
 
 if (isset($_POST['rut'])) {
+  $direccion = $_POST['region']. ' '. $_POST['comuna']. ' '. $_POST['direccion'];
+
     $conductor = array(
       'rut'           => $_POST['rut'],
       'nombre'        => $_POST['nombre'],
-      'direccion'     => $_POST['direccion'],
+      'direccion'     => $direccion,
       'fecha_ingreso' => $_POST['fecha_ingreso'],
       'fin_contrato'  => $_POST['fin_contrato'],
       'fk_estado'     => 1,
