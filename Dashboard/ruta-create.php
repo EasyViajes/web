@@ -15,25 +15,28 @@ require "../utils/connection.php";
 $conn = create_connection();
 
 if (isset($_POST['precio'])) {
-      $ruta = array(
-        'hora_salida'         => $_POST['hora_salida'],
-        'dia'                 => $_POST['dia'],
-        'precio'              => $_POST['precio'],
-        'fecha_creacion'      => date('Y-m-d'),
-        'direccion_origen'    => $_POST['origen'],
-        'direccion_destino'   => $_POST['destino'],
-        'fk_estado'           => 1,
-        'fk_vehiculo'         => $_POST['fk_vehiculo'],
-        'fk_empresa'          => $_SESSION['fk_empresa'],
-      );
-      if(create_ruta($conn, $ruta)){
-        header("location: /Dashboard/ruta-list.php?msg=creation_success");
-      }
+	$origen = $_POST['region-origen']. ' '. $_POST['comuna-origen']. ' '. $_POST['direccion-origen'];
+	$destino = $_POST['region-destino']. ' '. $_POST['comuna-destino']. ' '. $_POST['direccion-destino'];
 
-      else{
-        // ruta
-        header("location: /Dashboard/ruta-create.php?msg=creationFailed");
-      }
+	$ruta = array(
+		'hora_salida'         => $_POST['hora_salida'],
+		'dia'                 => $_POST['dia'],
+		'precio'              => $_POST['precio'],
+		'fecha_creacion'      => date('Y-m-d'),
+		'direccion_origen'    => $origen,
+		'direccion_destino'   => $destino,
+		'fk_estado'           => 1,
+		'fk_vehiculo'         => $_POST['fk_vehiculo'],
+		'fk_empresa'          => $_SESSION['fk_empresa'],
+	);
+	if(create_ruta($conn, $ruta)){
+		header("location: /Dashboard/ruta-list.php?msg=creation_success");
+	}
+
+	else{
+		// ruta
+		header("location: /Dashboard/ruta-create.php?msg=creationFailed");
+	}
 }
 $vehiculos = get_vehiculos($conn, $_SESSION['fk_empresa']);
 function print_vehiculos($data) {
@@ -155,9 +158,8 @@ function print_vehiculos($data) {
                                             <label for="select" class=" form-control-label">Origen</label>
                                         </div>
                                         <div class="col-4 col-md-3">
-                                            <select name="region-origen" id="regiones" class="form-control" required>
+					    <select name="region-origen" id="regiones" class="form-control" required>
                                                 <option value="0">---</option>
-                                               
                                             </select>
                                             <small class="help-block form-text">Seleccione una región</small>
                                         </div>

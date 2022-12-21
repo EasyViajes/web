@@ -28,6 +28,7 @@ function create_ruta($conn, $ruta){
   catch(Exception $e) {
     echo "Exception in createRuta()\n";
     echo $e->getMessage();
+    die();
   }
 }
 
